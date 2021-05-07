@@ -32,8 +32,22 @@ set encoding=utf-8
 let g:neovide_refresh_rate=140
 let g:neovide_transparency=0.95
 
+" Aliases
+function IDE(...)
+    if a:0 > 0
+	let l:path = a:1
+    else
+	let l:path = getcwd()
+    endif
+    execute "NERDTree" l:path
+    execute "bo 10sp | term"
+endfunction
+
+command -nargs=? -complete=file IDE call IDE(<f-args>)
+
 " Load plugins
 call plug#begin()
-  Plug 'preservim/nerdtree'     " Tree explorer
+  Plug 'preservim/nerdtree'	    " Tree explorer
+  Plug 'vim-airline/vim-airline'    " Custom status bar
 call plug#end()
 
