@@ -1,7 +1,8 @@
 " General
 set number			" Show line numbers
 set linebreak			" Break lines at word (requires Wrap lines)
-set showbreak=+++ 		" Wrap-broken line prefix
+"set showbreak=↪\   		" Wrap-broken line prefix
+set showbreak==>\ 
 set textwidth=100		" Line wrap (number of cols)
 set showmatch			" Highlight matching brace
 set visualbell			" Use visual bell (no beeping)
@@ -25,8 +26,14 @@ set ruler			" Show row and column ruler information
 
 set undolevels=1000		" Number of undo levels
 set backspace=indent,eol,start	" Backspace behaviour
+set encoding=utf-8
 
 " Neovide settings
 let g:neovide_refresh_rate=140
 let g:neovide_transparency=0.95
+
+" Load plugins
+call plug#begin()
+  Plug 'preservim/nerdtree'     " Tree explorer
+call plug#end()
 
