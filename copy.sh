@@ -8,3 +8,4 @@ rm ./.config/bpytop/error.log
 cp -rv ~/.config/nvim/ ./.config/
 cp -rv ~/.config/tilix ./.config/
 cp -rv ~/.config/katerc ./.config/
+cp -rv ~/.config/qtile ./.config/

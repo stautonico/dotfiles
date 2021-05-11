@@ -102,12 +102,12 @@ Word Completion Minimal Word Length=3
 Word Completion Remove Tail=true
 
 [KTextEditor::Search]
-Replace History=#202124,white
-Search History=#080808,#fdf6e3,version,fps
+Replace History=content,#202124,white
+Search History=script,keyboard,conetnt,#080808,#fdf6e3,version,fps
 
 [MainWindow]
-HDMI-0 DP-2 Height 2560x1440=686
-HDMI-0 DP-2 Width 2560x1440=1018
+HDMI-0 DP-2 Height 2560x1440=1404
+HDMI-0 DP-2 Width 2560x1440=1736
 
 [UiSettings]
 ColorScheme=Krita darker

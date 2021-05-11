@@ -33,7 +33,7 @@ let g:neovide_refresh_rate=140
 let g:neovide_transparency=0.95
 
 " Aliases
-function IDE(...)
+function! IDE(...)
     if a:0 > 0
 	let l:path = a:1
     else
@@ -43,7 +43,7 @@ function IDE(...)
     execute "bo 10sp | term"
 endfunction
 
-command -nargs=? -complete=file IDE call IDE(<f-args>)
+command! -nargs=? -complete=file IDE call IDE(<f-args>)
 
 " Load plugins
 call plug#begin()

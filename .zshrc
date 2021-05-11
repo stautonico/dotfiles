@@ -156,6 +156,8 @@ alias oldvim="/usr/bin/vim"
 alias math="bc"
 alias reboot-bios="sudo systemctl reboot --firmware-setup"
 alias neovide="/usr/bin/neovide -S ~/.config/nvim/init.vim"
+alias nano="/usr/bin/nano -l"
+alias github="cd /home/steve/Documents/GitHub"
 
 # Colorize grep output (good for log files)
 alias grep='grep --color=auto'
@@ -166,6 +168,7 @@ alias fgrep='fgrep --color=auto'
 alias cp="cp -i"
 alias mv='mv -i'
 alias rm='rm -i'
+alias rmnoconfirm='/usr/bin/rm'
 
 
 alias df='df -h'                          # human-readable sizes
@@ -185,8 +188,14 @@ alias tb="nc termbin.com 9999"
 
 alias discord="discord-canary"
 alias top="bpytop"
+alias firefox="/usr/bin/firefox-developer-edition"
+alias firefox-regular="/usr/bin/firefox"
 
 alias updatemirrorlist="sudo reflector --verbose -l 200 -n 20 -p https -p http -c 'United States' --sort rate --save /etc/pacman.d/mirrorlist"
+
+# Note: This is because sometimes META+CTRL+R doesn't restart qtile
+alias restart-qtile="qtile cmd-obj -o cmd -f restart"
+alias update-qtiledocs="python3 /home/steve/.config/qtile/generate_docs.py"
 
 
 # Make tilix work
@@ -196,3 +205,9 @@ fi
 
 # Flag autocomplete
 autoload -U compinit && compinit
+
+# Shortcuts to common config files
+export CONF_QTILE="/home/steve/.config/qtile/"
+export CONF_ZSH="/home/steve/.zshrc"
+export CONF_NVIM="/home/steve/.config/nvim/"
+export CONF_VIM="/home/steve/.config/nvim/"
