@@ -88,6 +88,12 @@ class Keybindings:
                 keys.append(Key([self.mod, self.shift], input_button, lazy.window.togroup(prefix + char),
                                 desc=f"Move window to workspace {prefix + char}"))
 
+        # Shortcut for switching to "special" groups
+        # Special groups are meant for specific apps/types of apps (etc discord group)
+        # Discord
+        keys.append(Key([self.mod, self.control], "d", lazy.group["Discord"].toscreen(),
+                        desc="Switch to the Discord group on the focused monitor."))
+
         # Shortcuts #
         keys.append(Section("Shortcuts"))
         keys.append(Key([self.mod], "t", lazy.spawn(

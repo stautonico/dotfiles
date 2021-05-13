@@ -106,6 +106,8 @@ Replace History=content,#202124,white
 Search History=script,keyboard,conetnt,#080808,#fdf6e3,version,fps
 
 [MainWindow]
+DP-2 HDMI-0 Height 2560x1440=698
+DP-2 HDMI-0 Width 2560x1440=1260
 HDMI-0 DP-2 Height 2560x1440=1404
 HDMI-0 DP-2 Width 2560x1440=1736
 

@@ -43,6 +43,7 @@
 * Super + Shift + 9          Move window to workspace R2
 * Super + 0                  Switch to workspace R3
 * Super + Shift + 0          Move window to workspace R3
+* Super + Control + D        Switch to the Discord group on the focused monitor.
 ## Shortcuts
 ---
 * Super + T                  Launch terminal

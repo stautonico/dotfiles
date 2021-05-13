@@ -10,6 +10,7 @@ from groups import CreateGroups
 from keybindings import Mouse
 from layouts import Layouts
 from widgets import MyWidgets
+from functions import Functions
 
 # from typing import List  # noqa: F401
 
@@ -67,6 +68,10 @@ focus_on_window_activation = "smart"
 def start_once():
     home = os.path.expanduser('~')
     subprocess.call((home + '/.config/qtile/autostart.sh').split())
+
+    # Init the monitor groups
+    Functions.go_to_group("L1")
+    Functions.go_to_group("R1")
 
 
 @hook.subscribe.startup

@@ -5,6 +5,7 @@ from libqtile.widget.generic_poll_text import GenPollUrl
 
 _DEFAULT_CURRENCY = str(locale.localeconv()['int_curr_symbol'])
 
+
 class BitcoinTicker(GenPollUrl):
     """
     A bitcoin ticker widget, data provided by the coinbase.com API. Defaults to
@@ -41,7 +42,11 @@ class BitcoinTicker(GenPollUrl):
         return self.QUERY_URL % self.currency.lower()
 
     def parse(self, body):
-        return "BTC: {symbol}{amount:,}".format(symbol=self.symbol, amount=float(body['data']['amount']))
+        HOLDINGS = 0.0013108
+        PRICE_PER_BTC = float(body['data']['amount'])
+        return " | {symbol}{amount:,} | Wallet: {symbol}{holdings:,}".format(symbol=self.symbol,
+                                                                                 amount=PRICE_PER_BTC, holdings=round(
+                HOLDINGS * PRICE_PER_BTC, 2))
 
 
 class EthereumTicker(GenPollUrl):
@@ -81,4 +86,8 @@ class EthereumTicker(GenPollUrl):
 
     # f'{value:,}'  # For Python ≥3.6
     def parse(self, body):
-        return "ETH: {symbol}{amount:,}".format(symbol=self.symbol, amount=float(body['data']['amount']))
+        HOLDINGS = 0.003931
+        PRICE_PER_ETH = float(body['data']['amount'])
+        return "ETH | {symbol}{amount:,} | Wallet: {symbol}{holdings:,}".format(symbol=self.symbol,
+                                                                                 amount=PRICE_PER_ETH, holdings=round(
+                HOLDINGS * PRICE_PER_ETH, 2))

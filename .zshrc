@@ -146,6 +146,19 @@ ex ()
   fi
 }
 
+change-qtile-theme () {
+    if ! [ -z "$1" ]; then
+	echo "$1" > /home/steve/.config/qtile/theme
+	set_theme=$1
+    else
+	echo "default" > /home/steve/.config/qtile/theme
+	set_theme="default"
+    fi
+
+    echo "Restart qtile to apply theme: '$set_theme'"
+
+}
+
 # Aliases
 alias ls="exa"
 alias oldls="/usr/bin/ls"
@@ -158,6 +171,8 @@ alias reboot-bios="sudo systemctl reboot --firmware-setup"
 alias neovide="/usr/bin/neovide -S ~/.config/nvim/init.vim"
 alias nano="/usr/bin/nano -l"
 alias github="cd /home/steve/Documents/GitHub"
+alias upgrade="sudo pacman -Syyu && yay -Syu --noconfirm"
+alias update="sudo pacman -Syyu && yay -Syu --noconfirm"
 
 # Colorize grep output (good for log files)
 alias grep='grep --color=auto'
@@ -169,6 +184,13 @@ alias cp="cp -i"
 alias mv='mv -i'
 alias rm='rm -i'
 alias rmnoconfirm='/usr/bin/rm'
+
+# Common cd locations
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .3="cd ../.."
+alias .4="cd ../../.."
 
 
 alias df='df -h'                          # human-readable sizes
@@ -197,6 +219,20 @@ alias updatemirrorlist="sudo reflector --verbose -l 200 -n 20 -p https -p http -
 alias restart-qtile="qtile cmd-obj -o cmd -f restart"
 alias update-qtiledocs="python3 /home/steve/.config/qtile/generate_docs.py"
 
+alias userlist="cut -d: -f1 /etc/passwd"
+#alias pacman="sudo pacman --color auto"
+alias cleanup="sudo pacman -Rns $(pacman -Qtdq)"
+
+alias yta-aac="youtube-dl --extract-audio --audio-format aac "
+alias yta-best="youtube-dl --extract-audio --audio-format best "
+alias yta-flac="youtube-dl --extract-audio --audio-format flac "
+alias yta-m4a="youtube-dl --extract-audio --audio-format m4a "
+alias yta-mp3="youtube-dl --extract-audio --audio-format mp3 "
+alias yta-opus="youtube-dl --extract-audio --audio-format opus "
+alias yta-vorbis="youtube-dl --extract-audio --audio-format vorbis "
+alias yta-wav="youtube-dl --extract-audio --audio-format wav "
+
+alias ytv-best="youtube-dl -f bestvideo+bestaudio "
 
 # Make tilix work
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
@@ -211,3 +247,6 @@ export CONF_QTILE="/home/steve/.config/qtile/"
 export CONF_ZSH="/home/steve/.zshrc"
 export CONF_NVIM="/home/steve/.config/nvim/"
 export CONF_VIM="/home/steve/.config/nvim/"
+export PATH="$PATH:/home/steve/.local/bin"
+
+neofetch

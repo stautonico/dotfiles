@@ -1,3 +1,5 @@
+import os
+
 from libqtile.command import lazy
 
 
@@ -27,17 +29,31 @@ class Functions:
     @staticmethod
     def go_to_group(group):
         def __inner(qtile):
-            from libqtile.log_utils import logger
-            logger.warning(f"Our current group is {group}")
             # Left monitor is monitor 1
             # Right monitor is monitor 0
-            if group in ["L1", "L2", "L3"]:
+            if group in ["L1", "L2", "L3", "Discord"]:
                 qtile.cmd_to_screen(1)
                 # qtile.switch_to_group(group)
                 qtile.groups_map[group].cmd_toscreen()
-            elif group in ["R1", "R2", "R3"]:
+            elif group in ["R1", "R2", "R3", "Discord"]:
                 qtile.cmd_to_screen(0)
                 # qtile.switch_to_group(group)
                 qtile.groups_map[group].cmd_toscreen()
 
         return __inner
+
+    @staticmethod
+    def get_group():
+        valid_themes = [x for x in os.listdir("/home/steve/.config/qtile/themes") if
+                        x not in ["__init__.py", "__pycache__"]]
+
+        try:
+            with open("/home/steve/.config/qtile/theme", "r") as f:
+                current_theme = f.read().replace("\n", "") or "default"
+        except FileNotFoundError:
+            current_theme = "default"
+
+        if current_theme not in valid_themes:
+            current_theme = "default"
+
+        return current_theme

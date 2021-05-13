@@ -60,7 +60,8 @@ for key in keys:
 
     final = "\n".join(final_output)
 
-with open("./qtilebinds.md", "w") as f:
+with open("/home/steve/.config/qtile/qtilebinds.md", "w") as f:
+    # noinspection PyUnboundLocalVariable
     f.write(final)
 
 try:
