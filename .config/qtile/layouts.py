@@ -12,17 +12,16 @@ class Layouts:
         layouts = [
             layout.MonadTall(**THEME.Layout.default),
             layout.Max(**THEME.Layout.default),
-            # layout.floating.Floating(**self.default),
-            # layout.TreeTab(**self.default),
-            # layout.Stack(num_stacks=2),
-            # Try more layouts by unleashing below layouts.
-            # layout.Bsp(),
-            # layout.Columns(),
-            # layout.Matrix(),
-            # layout.MonadWide(**self.default),
-            # layout.RatioTile(),
-            # layout.Tile(),
-            # layout.VerticalTile(),
-            # layout.Zoomy(),
+            layout.floating.Floating(**THEME.Layout.default),
+            # layout.TreeTab(**THEME.Layout.default),
+            # layout.Stack(num_stacks=2, **THEME.Layout.default),
+            # layout.Bsp(**THEME.Layout.default),
+            # layout.Columns(**THEME.Layout.default),
+            layout.Matrix(**THEME.Layout.default),
+            # layout.MonadWide(**THEME.Layout.default),
+            # layout.RatioTile(**THEME.Layout.default),
+            # layout.Tile(**THEME.Layout.default),
+            # layout.VerticalTile(**THEME.Layout.default),
+            # layout.Zoomy(**THEME.Layout.default),
         ]
         return layouts
