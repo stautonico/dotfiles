@@ -143,5 +143,5 @@ class MyWidgets:
         Init the widgets in the screen
         '''
 
-        return [Screen(top=bar.Bar(widgets=self.init_widgets_list("right"), opacity=1.00, size=20)),
-                Screen(top=bar.Bar(widgets=self.init_widgets_list("left"), opacity=1.00, size=20))]
+        return [Screen(top=bar.Bar(widgets=self.init_widgets_list("left"), opacity=1.00, size=20)),
+                Screen(top=bar.Bar(widgets=self.init_widgets_list("right"), opacity=1.00, size=20))]

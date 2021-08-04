@@ -32,11 +32,11 @@ class Functions:
             # Left monitor is monitor 1
             # Right monitor is monitor 0
             if group in ["L1", "L2", "L3", "Discord"]:
-                qtile.cmd_to_screen(1)
+                qtile.cmd_to_screen(0)
                 # qtile.switch_to_group(group)
                 qtile.groups_map[group].cmd_toscreen()
             elif group in ["R1", "R2", "R3", "Discord"]:
-                qtile.cmd_to_screen(0)
+                qtile.cmd_to_screen(1)
                 # qtile.switch_to_group(group)
                 qtile.groups_map[group].cmd_toscreen()
 

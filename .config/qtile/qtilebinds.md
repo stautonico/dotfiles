@@ -51,3 +51,4 @@
 * Super + E                  Launch PCManFM
 * Super + Space              Run Rofi
 * Super + Control + H        Opens this page
+* Super + Control + L        Lock the screen

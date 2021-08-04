@@ -174,6 +174,10 @@ alias github="cd /home/steve/Documents/GitHub"
 alias upgrade="sudo pacman -Syyu && yay -Syu --noconfirm"
 alias update="sudo pacman -Syyu && yay -Syu --noconfirm"
 alias q="exit"
+alias startwebcam="screen -S webcam -dm /home/steve/Documents/Scripts/webcam.sh"
+alias stopwebcam="screen -X -S webcam quit"
+alias image="nomacs"
+alias json="/usr/bin/jq . "
 
 # Colorize grep output (good for log files)
 alias grep='grep --color=auto'
@@ -220,7 +224,8 @@ alias updatemirrorlist="sudo reflector --verbose -l 200 -n 20 -p https -p http -
 alias restart-qtile="qtile cmd-obj -o cmd -f restart"
 alias update-qtiledocs="python3 /home/steve/.config/qtile/generate_docs.py"
 
-alias userlist="cut -d: -f1 /etc/passwd"
+alias allusers="cut -d: -f1 /etc/passwd"
+alias userlist="egrep -E '/bin/bash|/usr/bin/zsh' /etc/passwd | cut -d: -f1"
 #alias pacman="sudo pacman --color auto"
 alias cleanup="sudo pacman -Rs $(pacman -Qqtd)"
 
@@ -249,6 +254,6 @@ export CONF_ZSH="/home/steve/.zshrc"
 export CONF_NVIM="/home/steve/.config/nvim/"
 export CONF_VIM="/home/steve/.config/nvim/"
 export CONF_CSGO="/home/steve/.local/share/Steam/steamapps/common/Counter-Strike Global Offensive"
-export PATH="$PATH:/home/steve/.local/bin"
+export PATH="$PATH:/home/steve/.local/bin:/home/steve/.emacs.d/bin"
 
 neofetch

@@ -110,6 +110,8 @@ class Keybindings:
             Key([self.mod, self.control], "h", lazy.spawn(f"/usr/bin/typora /home/steve/Documents/qtilebinds.md"),
                 desc="Opens this page"))
 
+        keys.append(Key([self.mod, self.control], "l", lazy.spawn("physlock"), desc="Lock the screen"))
+
         return keys
 
 
