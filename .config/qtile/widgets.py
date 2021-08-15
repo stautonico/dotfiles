@@ -73,7 +73,7 @@ class MyWidgets:
                     this_screen_border=THEME.Colors.background_three,
                     **THEME.Widget.fgbg_default,
                     disable_drag=True,
-                    visible_groups=["L1", "L2", "L3", "Discord"]
+                    visible_groups=["L1", "L2", "L3", "Discord", "Steam"]
                 ),
                 after_group_separator,
                 current_window_name,
@@ -122,7 +122,7 @@ class MyWidgets:
                     this_screen_border=THEME.Colors.background_three,
                     **THEME.Widget.fgbg_default,
                     disable_drag=True,
-                    visible_groups=["R1", "R2", "R3", "Discord"]
+                    visible_groups=["R1", "R2", "R3", "Discord", "Steam"]
                 ),
                 after_group_separator,
                 current_window_name,

@@ -73,7 +73,6 @@ def start_once():
     Functions.go_to_group("L1")
     Functions.go_to_group("R1")
 
-
 @hook.subscribe.startup
 def start():
     # Regenerate the docs

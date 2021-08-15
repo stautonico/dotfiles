@@ -6,10 +6,12 @@ function run {
     fi
 }
 
+# Autostart programs
 #run picom --experimental-backend &
 run picom &
 run nitrogen --restore &
 run xfce4-clipman
+run /usr/bin/discord-canary
 
 # Set proper video mode
 xrandr --output HDMI-0 --mode 2560x1440 --rate 144.00 --right-of DP-4

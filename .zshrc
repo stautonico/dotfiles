@@ -146,6 +146,17 @@ ex ()
   fi
 }
 
+fastfind ()
+{
+    if [ $# -eq 0 ] ; then
+	echo "usage: $0 <filename or pattern>"
+    else
+	find / -iname "*$1*" 2> /dev/null
+    fi
+}
+
+alias ff="fastfind"
+
 change-qtile-theme () {
     if ! [ -z "$1" ]; then
 	echo "$1" > /home/steve/.config/qtile/theme
@@ -178,6 +189,7 @@ alias startwebcam="screen -S webcam -dm /home/steve/Documents/Scripts/webcam.sh"
 alias stopwebcam="screen -X -S webcam quit"
 alias image="nomacs"
 alias json="/usr/bin/jq . "
+alias grep="ripgrep"
 
 # Colorize grep output (good for log files)
 alias grep='grep --color=auto'
@@ -254,6 +266,7 @@ export CONF_ZSH="/home/steve/.zshrc"
 export CONF_NVIM="/home/steve/.config/nvim/"
 export CONF_VIM="/home/steve/.config/nvim/"
 export CONF_CSGO="/home/steve/.local/share/Steam/steamapps/common/Counter-Strike Global Offensive"
+export CONF_ALACRITTY="/home/steve/.config/alacritty"
 export PATH="$PATH:/home/steve/.local/bin:/home/steve/.emacs.d/bin"
 
 neofetch

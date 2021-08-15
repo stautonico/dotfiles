@@ -1,0 +1,103 @@
+# Some programs recognize "alacritty" as a terminal
+env:
+  TERM: alacritty
+
+cursor:
+  # Set the cursor to a line (i-beam)
+  style:
+    shape: Beam
+    blinking: Always
+  blink_interval: 500
+  unfocused_hollow: false
+  thickness: 0.15
+
+window:
+  padding:
+    x: 6
+    y: 6
+
+  # Allow terminal applications to change the window's title
+  dynamic_title: true
+
+# Set the fonts
+font:
+  # Standard
+  normal:
+    family: Source Code Pro
+    style: Regular
+
+  bold:
+    family: Source Code Pro
+    style: Bold
+
+  italic:
+    family: Source Code Pro
+    style: Italic
+
+  bold_italic:
+    family: Source Code Pro
+    style: Bold Italic
+
+  # Default size, just here to change in the future
+  size: 11
+
+colors:
+  # Background and foreground colors
+  primary:
+    background: "#202124"
+    foreground: "#E8EAED"
+
+  cursor:
+    text: CellBackground
+    cursor: CellForeground
+
+  # Default colors
+  normal:
+    black: '#202124'
+    red: '#EA4335'
+    green: '#34A853'
+    yellow: '#FBBC04'
+    blue: '#4285F4'
+    magenta: '#A142F4'
+    cyan: '#24C1E0'
+    white: '#E8EAED'
+
+  # Bright colors
+  bright:
+    black: '#5F6368'
+    red: '#EA4335'
+    green: '#34A853'
+    yellow: '#FBBC05'
+    blue: '#4285F4'
+    magenta: '#A142F4'
+    cyan: '#24C1E0'
+    white: '#FFFFFF'
+
+# Make the background slightly opaque (transparency)
+background_opacity: 0.95
+
+# Mouse bindings:
+# Right click: Copy highlighted text
+# Middle click: None (Used to disable middle click to paste)
+mouse_bindings:
+  - { mouse: Right, action: Copy }
+  - { mouse: Middle, action: None }
+
+# Keyboard bindings:
+# CTRL + L: Clear screen
+# SHIFT + PageUp: Scroll up
+# SHIFT + PageDown: Scroll page Down
+# SHIFT + Home: Scroll to top
+# SHIFT + End: Scroll to bottom
+# CTRL + SHIFT + C: Copy
+# CTRL + SHIFT + V: Paste
+key_bindings:
+  - { key: Paste,                                       action: Paste }
+  - { key: Copy,                                        action: Copy }
+  - { key: V,              mods: Control|Shift, mode: ~Vi,        action: Paste }
+  - { key: C,              mods: Control|Shift,                   action: Copy }
+  - { key: L,         mods: Control,                    action: ClearLogNotice }
+  - { key: PageUp,    mods: Shift,                      action: ScrollPageUp, }
+  - { key: PageDown,  mods: Shift,                      action: ScrollPageDown }
+  - { key: Home,      mods: Shift,                      action: ScrollToTop, }
+  - { key: End,       mods: Shift,                      action: ScrollToBottom }

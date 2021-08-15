@@ -97,13 +97,13 @@ class Keybindings:
         # Shortcuts #
         keys.append(Section("Shortcuts"))
         keys.append(Key([self.mod], "t", lazy.spawn(
-            "/usr/bin/tilix"), desc="Launch terminal"))
+            "/usr/bin/alacritty"), desc="Launch terminal"))
 
         keys.append(Key([self.mod], "f", lazy.spawn("/usr/bin/firefox-developer-edition"), desc="Launch Firefox"))
 
         keys.append(Key([self.mod], "e", lazy.spawn("/usr/bin/pcmanfm"), desc="Launch PCManFM"))
 
-        keys.append(Key([self.mod], "space", lazy.spawn('rofi -modi "drun,run,window,ssh" -show drun'),
+        keys.append(Key([self.mod], "space", lazy.spawn('custom_rofi'),
                         desc="Run Rofi"))
 
         keys.append(
