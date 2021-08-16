@@ -269,4 +269,9 @@ export CONF_CSGO="/home/steve/.local/share/Steam/steamapps/common/Counter-Strike
 export CONF_ALACRITTY="/home/steve/.config/alacritty"
 export PATH="$PATH:/home/steve/.local/bin:/home/steve/.emacs.d/bin"
 
-neofetch
+startup_commands=(neofetch pfetch)
+
+size=${#startup_commands[@]}
+index=$(($RANDOM % $size+1))
+
+{$startup_commands[$index]}

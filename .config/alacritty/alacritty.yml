@@ -1,6 +1,5 @@
-# Some programs recognize "alacritty" as a terminal
 env:
-  TERM: alacritty
+  TERM: xterm-256color
 
 cursor:
   # Set the cursor to a line (i-beam)
@@ -18,6 +17,20 @@ window:
 
   # Allow terminal applications to change the window's title
   dynamic_title: true
+
+  # This sounds good in theroy, but its dogshit in reality (most of the time)
+  dynamic_padding: false
+
+  title: Alacritty
+
+# Window class information
+class:
+  instance: Alacritty
+  general: Alacritty
+
+scrolling:
+  # Maximum number of lines in the scrollback buffer
+  history: 8192
 
 # Set the fonts
 font:
@@ -40,6 +53,11 @@ font:
 
   # Default size, just here to change in the future
   size: 11
+
+  # Offset around each character
+  offset:
+    x: 0
+    y: 0
 
 colors:
   # Background and foreground colors
@@ -72,6 +90,8 @@ colors:
     magenta: '#A142F4'
     cyan: '#24C1E0'
     white: '#FFFFFF'
+
+draw_bold_text_with_bright_colors: true
 
 # Make the background slightly opaque (transparency)
 background_opacity: 0.95
