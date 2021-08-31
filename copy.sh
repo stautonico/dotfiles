@@ -11,3 +11,5 @@ cp -rv ~/.config/katerc ./.config/
 cp -rv ~/.config/qtile ./.config/
 cp -rv ~/.config/alacritty ./.config/
 cp -rv ~/.config/rofi ./.config/
+cp -rv ~/.config/i3 ./.config/
+cp -rv ~/.config/polybar ./.config/
