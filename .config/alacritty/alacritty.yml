@@ -72,6 +72,7 @@ colors:
   # Default colors
   normal:
     black: '#202124'
+    #black: "#000000"
     red: '#EA4335'
     green: '#34A853'
     yellow: '#FBBC04'

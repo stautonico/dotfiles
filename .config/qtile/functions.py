@@ -31,11 +31,11 @@ class Functions:
         def __inner(qtile):
             # Left monitor is monitor 1
             # Right monitor is monitor 0
-            if group in ["L1", "L2", "L3", "Discord"]:
+            if group in ["L1", "L2", "L3", "Discord", "Steam", "Zoom"]:
                 qtile.cmd_to_screen(0)
                 # qtile.switch_to_group(group)
                 qtile.groups_map[group].cmd_toscreen()
-            elif group in ["R1", "R2", "R3", "Discord"]:
+            elif group in ["R1", "R2", "R3", "Discord", "Steam", "Zoom"]:
                 qtile.cmd_to_screen(1)
                 # qtile.switch_to_group(group)
                 qtile.groups_map[group].cmd_toscreen()

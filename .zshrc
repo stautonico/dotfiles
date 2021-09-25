@@ -182,14 +182,15 @@ alias reboot-bios="sudo systemctl reboot --firmware-setup"
 alias neovide="/usr/bin/neovide -S ~/.config/nvim/init.vim"
 alias nano="/usr/bin/nano -l"
 alias github="cd /home/steve/Documents/GitHub"
-alias upgrade="sudo pacman -Syyu && yay -Syu --noconfirm"
-alias update="sudo pacman -Syyu && yay -Syu --noconfirm"
+alias upgrade="sudo pacman -Syyuu && yay -Syyuu --noconfirm"
+alias update="sudo pacman -Syyuu && yay -Syyuu --noconfirm"
 alias q="exit"
 alias startwebcam="screen -S webcam -dm /home/steve/Documents/Scripts/webcam.sh"
 alias stopwebcam="screen -X -S webcam quit"
 alias image="nomacs"
 alias json="/usr/bin/jq . "
 alias grep="ripgrep"
+alias open="xdg-open"
 
 # Colorize grep output (good for log files)
 alias grep='grep --color=auto'
@@ -269,9 +270,11 @@ export CONF_CSGO="/home/steve/.local/share/Steam/steamapps/common/Counter-Strike
 export CONF_ALACRITTY="/home/steve/.config/alacritty"
 export PATH="$PATH:/home/steve/.local/bin:/home/steve/.emacs.d/bin"
 
-startup_commands=(neofetch pfetch)
+#startup_commands=(neofetch pfetch)
 
-size=${#startup_commands[@]}
-index=$(($RANDOM % $size+1))
+#size=${#startup_commands[@]}
+#index=$(($RANDOM % $size+1))
 
-{$startup_commands[$index]}
+#{$startup_commands[$index]}
+
+python-colorscript --256 --ignore-distro
