@@ -30,7 +30,10 @@ class Keybindings:
         # Essential Controls #
         keys.append(Section("Essentials"))
         keys.append(Key([self.mod], "Tab", lazy.next_layout(),
-                        desc="Toggle between layouts"))
+                        desc="Next layout"))
+
+        keys.append(Key([self.mod, self.shift], "Tab", lazy.prev_layout(),
+                        desc="Previous layout"))
 
         keys.append(Key([self.mod], "w", lazy.window.kill(),
                         desc="Kill focused window"))
@@ -101,7 +104,8 @@ class Keybindings:
 
         keys.append(Key([self.mod], "f", lazy.spawn("/usr/bin/firefox-developer-edition"), desc="Launch Firefox"))
 
-        keys.append(Key([self.mod], "e", lazy.spawn("/usr/bin/pcmanfm"), desc="Launch PCManFM"))
+        keys.append(Key([self.mod, self.shift], "e", lazy.spawn("/usr/bin/pcmanfm"), desc="Launch PCManFM"))
+        keys.append(Key([self.mod], "e", lazy.spawn("/usr/bin/alacritty -e nnn"), desc="Launch NNN"))
 
         keys.append(Key([self.mod], "space", lazy.spawn('custom_rofi'),
                         desc="Run Rofi"))

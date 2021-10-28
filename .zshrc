@@ -191,6 +191,10 @@ alias image="nomacs"
 alias json="/usr/bin/jq . "
 alias grep="ripgrep"
 alias open="xdg-open"
+alias ps="procs"
+
+# Force myself to use vim
+alias nano="vim"
 
 # Colorize grep output (good for log files)
 alias grep='grep --color=auto'
@@ -230,6 +234,7 @@ alias discord="discord-canary"
 alias top="bpytop"
 alias firefox="/usr/bin/firefox-developer-edition"
 alias firefox-regular="/usr/bin/firefox"
+alias proxy="/home/steve/.cargo/bin/proxy"
 
 alias updatemirrorlist="sudo reflector --verbose -l 200 -n 20 -p https -p http -c 'United States' --sort rate --save /etc/pacman.d/mirrorlist"
 
@@ -258,6 +263,9 @@ if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
         source /etc/profile.d/vte.sh
 fi
 
+# Setup zoxide
+eval "$(zoxide init zsh)"
+
 # Flag autocomplete
 autoload -U compinit && compinit
 
@@ -268,7 +276,9 @@ export CONF_NVIM="/home/steve/.config/nvim/"
 export CONF_VIM="/home/steve/.config/nvim/"
 export CONF_CSGO="/home/steve/.local/share/Steam/steamapps/common/Counter-Strike Global Offensive"
 export CONF_ALACRITTY="/home/steve/.config/alacritty"
-export PATH="$PATH:/home/steve/.local/bin:/home/steve/.emacs.d/bin"
+
+export GOPATH=/home/steve/go
+export PATH="$PATH:/home/steve/.local/bin:/home/steve/.emacs.d/bin:/home/steve/.cargo/bin"
 
 #startup_commands=(neofetch pfetch)
 

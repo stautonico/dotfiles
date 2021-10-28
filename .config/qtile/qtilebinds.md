@@ -1,6 +1,7 @@
 ## Essentials
 ---
-* Super + Tab                Toggle between layouts
+* Super + Tab                Next layout
+* Super + Shift + Tab        Previous layout
 * Super + W                  Kill focused window
 * Super + Control + R        Restart qtile
 * Super + Control + Q        Shutdown qtile
@@ -48,7 +49,8 @@
 ---
 * Super + T                  Launch terminal
 * Super + F                  Launch Firefox
-* Super + E                  Launch PCManFM
+* Super + Shift + E          Launch PCManFM
+* Super + E                  Launch NNN
 * Super + Space              Run Rofi
 * Super + Control + H        Opens this page
 * Super + Control + L        Lock the screen

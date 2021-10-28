@@ -17,7 +17,7 @@ class Layouts:
             # layout.Stack(num_stacks=2, **THEME.Layout.default),
             # layout.Bsp(**THEME.Layout.default),
             # layout.Columns(**THEME.Layout.default),
-            layout.Matrix(**THEME.Layout.default),
+            layout.Matrix(columns=2,**THEME.Layout.default),
             # layout.MonadWide(**THEME.Layout.default),
             # layout.RatioTile(**THEME.Layout.default),
             # layout.Tile(**THEME.Layout.default),

@@ -22,3 +22,6 @@ numlockx on
 
 # Set mouse sensitiviy
 xinput --set-prop 9 'libinput Accel Speed' -0.5
+
+# Update Kensington Expert settings
+/home/steve/Documents/Scripts/Kensington_Expert_Setup.sh

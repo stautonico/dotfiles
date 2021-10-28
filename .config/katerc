@@ -102,14 +102,14 @@ Word Completion Minimal Word Length=3
 Word Completion Remove Tail=true
 
 [KTextEditor::Search]
-Replace History=</code>,<code>,https://www.adultswim.com/videos/,, ,\\, ,S02,Season 2,2,Season 1,S01,Fire Force,content,#202124,white
-Search History=```,```shell,job.status,/videos/, debugger eval code:2:11,  ,| ,                   |,;LAYER:,Layer,item,@,S01,Season 1,1,Season 2,S02,The Quintessential Quintuplets,script,keyboard,conetnt,#080808,#fdf6e3,version,fps
+Replace History=digit,</code>,<code>,https://www.adultswim.com/videos/,, ,\\, ,S02,Season 2,2,Season 1,S01,Fire Force,content,#202124,white
+Search History=bs-gutter-x,.container,digitNumber,name,```,```shell,job.status,/videos/, debugger eval code:2:11,  ,| ,                   |,;LAYER:,Layer,item,@,S01,Season 1,1,Season 2,S02,The Quintessential Quintuplets,script,keyboard,conetnt,#080808,#fdf6e3,version,fps
 
 [MainWindow]
 DP-2 HDMI-0 Height 2560x1440=1400
 DP-2 HDMI-0 Width 2560x1440=2540
 DP-4 HDMI-0 Height 2560x1440=1400
-DP-4 HDMI-0 Width 2560x1440=1260
+DP-4 HDMI-0 Width 2560x1440=876
 HDMI-0 DP-2 Height 2560x1440=1404
 HDMI-0 DP-2 Width 2560x1440=1736
 
