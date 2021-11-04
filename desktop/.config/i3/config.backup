@@ -1,0 +1,154 @@
+# vim: filetype=i3config
+
+### Basic Config ###
+
+# Set the modifier key to the Super/Win key
+set $mod Mod4
+
+# Set the floating draw/resize modifier key to Super/Win
+floating_modifier $mod
+
+# Configure gaps
+gaps inner 6
+gaps outer 0
+smart_gaps on
+
+# Disable focus border + window title
+default_border pixel 0
+for_window [class="^.*"] border pixel 0
+
+# Font used for window titles
+font pango:DejaVu Sans Mono 10
+
+
+### Variables ###
+# Monitor names
+set $monitorLeft "DP-4"
+set $monitorRight "HDMI-0"
+
+# Workstation Names
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# Bind workstations to specific monitors
+workspace $ws1 output $monitorLeft
+workspace $ws2 output $monitorLeft
+workspace $ws3 output $monitorLeft
+workspace $ws4 output $monitorLeft
+workspace $ws5 output $monitorLeft
+
+workspace $ws6 output $monitorRight
+workspace $ws7 output $monitorRight
+workspace $ws8 output $monitorRight
+workspace $ws9 output $monitorRight
+workspace $ws10 output $monitorRight
+
+
+### Key Bindings ###
+# Common Programs
+# Terminal
+bindsym $mod+t exec /usr/bin/alacritty
+
+# File manager (ranger)
+bindsym $mod+e exec /usr/bin/ranger
+
+# Firefox
+bindsym $mod+f exec /usr/bin/firefox-developer-edition
+
+# Basic Navigation & Control Keys
+# Close a window
+bindsym $mod+w kill
+
+# Switch workspaces
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+# Move the focused container to a specific workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+# Change focus (h,j,k,l)
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# Shift the focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# Split to horizonal view
+bindsym $mod+Control+h split h
+
+# Split to vertical view
+bindsym $mod+Control+v split v
+
+# Change layout (split, tabbed)
+bindsym $mod+Control+q layout toggle split
+bindsym $mod+Control+w layout tabbed
+
+# Toggle a window floating
+bindsym $mod+Shift+f floating toggle
+
+# Make a window fullscreen
+bindsym $mod+Control+f fullscreen toggle
+
+# Reload the config file
+bindsym $mod+Shift+c reload
+
+# Restart i3 (keeps layout/session)
+bindsym $mod+Shift+r restart
+
+# Logout of I3
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+
+# Resize mode (Reize with h,j,k,l and exit using Enter, Escape, or Super+r again
+mode "resize" {
+    bindsym h resize shrink width 10 px or 10 ppt
+    bindsym j resize grow height 10 px or 10 ppt
+    bindsym k resize shrink height 10 px or 10 ppt
+    bindsym l resize grow width 10 px or 10 ppt
+    
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
+}
+
+# Enter/Exit resize mode
+bindsym $mod+r mode "resize"
+
+# Enable i3status and polybar
+bar {
+    status_command i3status
+    i3bar_command $HOME/.config/polybar/launch.sh
+}
+
+# Autostart programs
+exec_always --no-startup-id $HOME/.config/i3/autostart.sh

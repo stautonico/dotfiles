@@ -1,0 +1,100 @@
+# vim: filetype=i3config
+
+### Basic Config ###
+
+# Set the modifier key to the Super/Win key
+set $mod Mod4
+
+# Set the floating draw/resize modifier key to Super/Win
+floating_modifier $mod
+
+# Configure gaps
+gaps inner 6
+gaps outer 0
+smart_gaps on
+
+# Disable focus border + window title
+default_border pixel 0
+for_window [class="^.*"] border pixel 0
+
+# Font used for window titles
+font pango:DejaVu Sans Mono 10
+
+# Automatic floating windows for specific classes
+for_window [class="confirm"] floating enable
+for_window [class="dialog"] floating enable
+for_window [class="download"] floating enable
+for_window [class="error"] floating enable
+for_window [class="file_progress"] floating enable
+for_window [class="notification"] floating enable
+for_window [class="splash"] floating enable
+for_window [class="toolbar"] floating enable
+for_window [class="xephyr"] floating enable
+for_window [class="Xephyr"] floating enable
+for_window [class="confirmreset"] floating enable
+for_window [class="maketag"] floating enable
+for_window [class="makebranch"] floating enable
+for_window [class="branchdialog"] floating enable
+for_window [class="pinentry"] floating enable
+for_window [class="ssh-askpass"] floating enable
+
+# Bind specific windows to specific workspaces
+assign [class="^discord$"] $discordws
+assign [class="Steam"] $steamws
+assign [class="^signal$"] $signalws
+assign [class="^zoom$"] $zoomws
+# include ./workspaces
+
+### Variables ###
+# Monitor names
+set $monitorLeft "DP-4"
+set $monitorRight "HDMI-0"
+
+# Workspace Names
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+set $ws5 5
+set $ws6 6
+set $ws7 7
+set $ws8 8
+set $ws9 9
+set $ws10 10
+
+set $discordws 11
+set $steamws 12
+set $signalws 13
+set $zoomws 14
+
+
+# Bind workstations to specific monitors
+workspace $ws1 output $monitorLeft
+workspace $ws2 output $monitorLeft
+workspace $ws3 output $monitorLeft
+workspace $ws4 output $monitorLeft
+workspace $ws5 output $monitorLeft
+
+workspace $ws6 output $monitorRight
+workspace $ws7 output $monitorRight
+workspace $ws8 output $monitorRight
+workspace $ws9 output $monitorRight
+workspace $ws10 output $monitorRight
+
+# Bind Special workspaces to specific monitors until I can figure out how to make them work on both
+# monitors
+workspace $discordws output $monitorRight
+workspace $steamws output $monitorRight
+workspace $signalws output $monitorRight
+workspace $zoomws output $monitorRight
+
+include ./keybinds
+
+# Enable i3status and polybar
+bar {
+    status_command i3status
+    i3bar_command $HOME/.config/polybar/launch.sh
+}
+
+# Autostart programs
+exec_always --no-startup-id $HOME/.config/i3/autostart.sh
