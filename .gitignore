@@ -6,3 +6,5 @@
 desktop/.config/qtile/.idea/*
 desktop/.config/qtile/__pycache__/*
 desktop/.config/qtile/themes/__pycache__/*
+
+desktop/.config/polybar/oldconfs/
