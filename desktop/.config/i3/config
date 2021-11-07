@@ -41,7 +41,7 @@ for_window [class="ssh-askpass"] floating enable
 # Bind specific windows to specific workspaces
 assign [class="^discord$"] $discordws
 assign [class="Steam"] $steamws
-assign [class="^signal$"] $signalws
+assign [class="Signal"] $signalws
 assign [class="^zoom$"] $zoomws
 # include ./workspaces
 

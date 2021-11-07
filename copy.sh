@@ -19,6 +19,7 @@ backup_desktop() {
     cp -rv ~/.config/ulauncher ./desktop/.config/
     # We really don't want the user prefs here (passwords are stored and stuff)
     rm -rfv ./desktop/.config/ulauncher/ext_preferences/
+    cp -rv ~/.doom.d/ ./desktop/
 
 }
 

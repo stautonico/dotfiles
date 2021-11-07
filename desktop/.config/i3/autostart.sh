@@ -31,3 +31,5 @@ xinput --set-prop 9 'libinput Accel Speed' -0.5
 systemctl --user start ulauncher
 
 /home/steve/.config/polybar/launch.sh
+
+emacs --daemon

@@ -12,7 +12,7 @@ bindsym $mod+e exec /usr/bin/xranger
 bindsym $mod+f exec /usr/bin/firefox-developer-edition
 
 # Screnshot with flameshot
-bindsym $mod+Shift+s exec /usr/bin/flameshot gu
+bindsym $mod+Shift+s exec /usr/bin/flameshot gui
 
 # Basic Navigation & Control Keys
 # Close a window
@@ -126,10 +126,10 @@ mode "special WS" {
     # Exit to normal mode
     bindsym Return mode "default"
     bindsym Escape mode "default"
-    bindsym $mod+Control+Z mode "default"
+    bindsym $mod+Control+s mode "default"
 }
 
-bindsym $mod+Control+z mode "special WS"
+bindsym $mod+Control+s mode "special WS"
 
 # Edit mode allows quick opening of common config files
 mode "config" {
@@ -143,6 +143,9 @@ mode "config" {
 
     bindsym p exec "/usr/bin/alacritty -e /usr/bin/nvim $HOME/.config/picom/picom.conf"; mode "default"
 
+    # Polybar config
+    bindsym y exec "/usr/bin/alacritty -e /usr/bin/nvim $HOME/.config/polybar/config"; mode "default"    
+    bindsym h exec "/usr/bin/alacritty -e /usr/bin/nvim $HOME/.config/polybar/modules"; mode "default"
 
     # Exit to normal mode
     bindsym Return mode "default"

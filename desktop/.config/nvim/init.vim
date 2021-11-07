@@ -50,5 +50,6 @@ call plug#begin()
   Plug 'preservim/nerdtree'	    " Tree explorer
   Plug 'vim-airline/vim-airline'    " Custom status bar
   Plug 'mboughaba/i3config.vim'     " Syntax highlighting for i3 config files
+  Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']} " Markdown preview
 call plug#end()
 

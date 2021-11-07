@@ -96,8 +96,11 @@ label = %percentage_used%%
 type = internal/date
 interval = 1
 
-date = %b %d
+date = %a, %b %d
 time = %I:%M:%S
+
+date-alt = %a, %b %d
+time-alt = %I:%M:%S %p
 
 label = [ %time% | %date% ]
 
