@@ -194,7 +194,7 @@ alias open="xdg-open"
 alias ps="procs"
 
 # Force myself to use vim
-alias nano="vim"
+# alias nano="vim"
 
 # Colorize grep output (good for log files)
 alias grep='grep --color=auto'
