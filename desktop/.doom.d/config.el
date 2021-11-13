@@ -54,3 +54,25 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+;; Custom keybindings for helm-spotify-plus
+(global-set-key (kbd "C-c s s") 'helm-spotify-plus)  ;; "s" for SEARCH
+(global-set-key (kbd "C-c s f") 'helm-spotify-plus-next)
+(global-set-key (kbd "C-c s b") 'helm-spotify-plus-previous)
+(global-set-key (kbd "C-c s p") 'helm-spotify-plus-play)
+(global-set-key (kbd "C-c s o") 'helm-spotify-plus-pause) ;; "o" is next to play and more convient than the default "g"
+
+
+;; Set the project location (projectile)
+(setq projectile-project-search-path '("~/Documents/GitHub/"))
+
+;; Settings for toc-org
+(if (require 'toc-org nil t)
+    (progn
+      (add-hook 'org-mode-hook 'toc-org-mode)
+
+      ;; enable in markdown, too
+      ;; (add-hook 'markdown-mode-hook 'toc-org-mode)
+      ;; (define-key markdown-mode-map (kbd "\C-c\C-o") 'toc-org-markdown-follow-thing-at-point))
+  ;;(warn "toc-org not found"))
+))
