@@ -43,6 +43,10 @@ assign [class="^discord$"] $discordws
 assign [class="Steam"] $steamws
 assign [class="Signal"] $signalws
 assign [class="^zoom$"] $zoomws
+# This doesn't work for some reason
+assign [class="^Spotify*"] $spotifyws
+# But this does (TODO: Investigate and fix)
+for_window [class="Spotify"] move to workspace $spotifyws
 # include ./workspaces
 
 ### Variables ###
@@ -66,7 +70,7 @@ set $discordws 11
 set $steamws 12
 set $signalws 13
 set $zoomws 14
-
+set $spotifyws 15
 
 # Bind workstations to specific monitors
 workspace $ws1 output $monitorLeft
@@ -87,6 +91,7 @@ workspace $discordws output $monitorRight
 workspace $steamws output $monitorRight
 workspace $signalws output $monitorRight
 workspace $zoomws output $monitorRight
+workspace $spotifyws output $monitorRight
 
 include ./keybinds
 

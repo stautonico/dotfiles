@@ -14,8 +14,8 @@ bindsym $mod+f exec /usr/bin/firefox-developer-edition
 # Screnshot with flameshot
 bindsym $mod+Shift+s exec /usr/bin/flameshot gui
 
-# Open emacs
-bindsym $mod+g exec /usr/bin/emacsclient -c -a "emacs"
+# Open emacs (d for doom)
+bindsym $mod+d exec /usr/bin/emacsclient -c -a "emacs"
 
 # Basic Navigation & Control Keys
 # Close a window
@@ -126,6 +126,10 @@ mode "special WS" {
     bindsym z workspace number $zoomws; mode "default"
     bindsym Shift+z move container to workspace number $zoomws
 
+    # Spotify
+    bindsym p workspace number $spotifyws; mode "default"
+    bindsym Shift+p move container to workspace number $spotifyws
+
     # Exit to normal mode
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -137,18 +141,18 @@ bindsym $mod+Control+s mode "special WS"
 # Edit mode allows quick opening of common config files
 mode "config" {
     # i3 Config
-    bindsym i exec "/usr/bin/alacritty -e $VISUAL $HOME/.config/i3/config"; mode "default"
-    bindsym k exec "/usr/bin/alacritty -e $VISUAL $HOME/.config/i3/keybinds"; mode "default"
+    bindsym i exec "/usr/bin/emacsclient -c $HOME/.config/i3/config"; mode "default"
+    bindsym k exec "/usr/bin/emacsclient -c $HOME/.config/i3/keybinds"; mode "default"
 
-    bindsym a exec "/usr/bin/alacritty -e $VISUAL $HOME/.config/alacritty/alacritty.yml"; mode "default"
+    bindsym a exec "/usr/bin/emacsclient -c $HOME/.config/alacritty/alacritty.yml"; mode "default"
 
-    bindsym d exec "/usr/bin/alacritty -e $VISUAL $HOME/.config/dunst/dunstrc"; mode "default"
+    bindsym d exec "/usr/bin/emacsclient -c $HOME/.config/dunst/dunstrc"; mode "default"
 
-    bindsym p exec "/usr/bin/alacritty -e $VISUAL $HOME/.config/picom/picom.conf"; mode "default"
+    bindsym p exec "/usr/bin/emacsclient -c $HOME/.config/picom/picom.conf"; mode "default"
 
     # Polybar config
-    bindsym y exec "/usr/bin/alacritty -e $VISUAL $HOME/.config/polybar/config"; mode "default"    
-    bindsym h exec "/usr/bin/alacritty -e $VISUAL $HOME/.config/polybar/modules"; mode "default"
+    bindsym y exec "/usr/bin/emacsclient -c $HOME/.config/polybar/config"; mode "default"    
+    bindsym h exec "/usr/bin/emacsclient -c $HOME/.config/polybar/modules"; mode "default"
 
     # Exit to normal mode
     bindsym Return mode "default"
