@@ -1,3 +1,26 @@
+#+TITLE: i3 Config
+#+PROPERTY: header-args :tangle config
+#+STARTUP: showeverything
+#+AUTHOR: Steve Tautonico
+
+* Table Of Contents :toc:
+- [[#basic-settings][Basic Settings]]
+- [[#workspaces][Workspaces]]
+- [[#keybinds][Keybinds]]
+  - [[#common-programs][Common Programs]]
+  - [[#navigation-and-control][Navigation and Control]]
+  - [[#modes][Modes]]
+- [[#bar--autostart][Bar + Autostart]]
+
+* Basic Settings
+These settings are the most basic settings throughout the entire config.
+These lines set:
+- The main modifier button (win/super button)
+- Configure i3-gaps
+- Disable window title
+- Set the font
+
+#+begin_src i3 :tangle config
 # vim: filetype=i3config
 
 # Set the modifier key to the Super/Win key
@@ -17,7 +40,26 @@ for_window [class="^.*"] border pixel 0
 
 # Font used for window titles
 font pango:DejaVu Sans Mono 10
+#+end_src
 
+
+* Workspaces
+There are 5 general purpose workspaces per monitor * 2 monitor = 10 gp workspaces.
+There are also 5 application specific workspaces:
+- Discord
+- Steam
+- Signal
+- Zoom
+- Spotify
+
+Whenever one of these specific apps are opened, they are automatically placed on their specific workspaces
+
+Some programs are set to float by default. Some of these windows include: download prompts, notifications,
+auto-fill on programs like pycharm, etc...
+
+Note: The "special" workspaces are locked to the right monitor becuase I can't figure out how to use them on either/both
+
+#+begin_src i3 :tangle config
 # Automatic floating windows for specific classes
 for_window [class="confirm"] floating enable
 for_window [class="dialog"] floating enable
@@ -89,7 +131,25 @@ workspace $steamws output $monitorRight
 workspace $signalws output $monitorRight
 workspace $zoomws output $monitorRight
 workspace $spotifyws output $monitorRight
+#+end_src
 
+
+* Keybinds
+The keybinds are the basis of i3. They allow the desktop to be controlled.
+They are split into a few sub-sections:
+
+** Common Programs
+These bindings are for launching commonly used programs.
+
+| Binding           | Opens                     |
+|-------------------+---------------------------|
+| Super + T         | Alacritty (Terminal)      |
+| Super + E         | Ranger (File Manager)     |
+| Super + F         | Firefox Developer Edition |
+| Super + Shift + S | Screenshot With Flameshot |
+| Super + D         | Doom Emacs                |
+
+#+begin_src i3 :tangle config
 # Terminal
 bindsym $mod+t exec /usr/bin/alacritty
 
@@ -105,7 +165,36 @@ bindsym $mod+Shift+s exec /usr/bin/flameshot gui
 
 # Open emacs (d for doom)
 bindsym $mod+d exec /usr/bin/emacsclient -c -a "emacs"
+#+end_src
 
+** Navigation and Control
+These keybinds are for navigating around the desktop, moving containers, and other desktop control settings.
+
+| Binding             | Description                               |
+|---------------------+-------------------------------------------|
+| Super + W           | Close the current window                  |
+| Super + 1-0         | Switch to workspace 1-10                  |
+| Super + Shift + 1-0 | Move the current window to workspace 1-10 |
+| Super + H           | Move focus left                           |
+| Super + J           | Move focus down                           |
+| Super + K           | Move focus up                             |
+| Super + L           | Move focus right                          |
+| Super + Shift + H   | Move current container left               |
+| Super + Shift + J   | Move current container down               |
+| Super + Shift + K   | Move current container up                 |
+| Super + Shift + L   | Move current container right              |
+| Super + Control + H | Split to horizontal view                  |
+| Super + Control + V | Split to vertical view                    |
+| Super + Control + Q | Change layout to split view               |
+| Super + Control + W | Change layout to tabbed view              |
+| Super + Shift + F   | Toggle floating mode on current window    |
+| Super + Control + F | Toggle full-screen mode on current window |
+| Super + Shift + C   | Reload the config file                    |
+| Super + Shift + R   | Restart i3                                |
+| Super + Control + L | Lock the desktop using fancylock          |
+| Super + Shift + E   | Open the logout prompt (exit i3)          |
+
+#+begin_src i3 :tangle config
 # Close a window
 bindsym $mod+w kill
 
@@ -180,7 +269,26 @@ bindsym $mod+Control+l exec $HOME/.config/i3/fancylock/lock --blur=0x16 --no-tex
 
 # Logout of I3
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+#+end_src
 
+** Modes
+These modes are sub-layers of characters that bind simpler bindings to tasks.
+
+*** Resize
+Resize mode allows for the current focused window to be resized.
+Each time a direction is pressed, the current window is resized by 10 units in the given direction
+
+| Binding   | Description             |
+|-----------+-------------------------|
+| Super + R | En/Dis-able resize mode |
+| H         | Decrease width          |
+| J         | Increase height         |
+| K         | Decrease height         |
+| L         | Increase width          |
+| Escape    | Disable resize mode     |
+| Enter     | Disable resize mode     |
+
+#+begin_src i3 :tangle config
 # Resize mode (Reize with h,j,k,l and exit using Enter, Escape, or Super+r again
 mode "resize" {
     bindsym h resize shrink width 10 px or 10 ppt
@@ -194,7 +302,28 @@ mode "resize" {
 }
 # Enter/Exit resize mode
 bindsym $mod+r mode "resize"
+#+end_src
 
+*** Special WS
+Special WS mode allows movement to and from "special" workspaces (ones bound to apps like steam, discord, etc)
+
+Note: WS = workspace
+
+| Binding             | Description                               |
+|---------------------+-------------------------------------------|
+| Super + Control + S | En/Dis-able special WS mode               |
+| D                   | Switch to discord WS                      |
+| Shift + D           | Move the focused window to discord WS     |
+| S                   | Switch to steam WS                        |
+| Shift + S           | Move the focused window to steam WS       |
+| G                   | Switch to signal WS                       |
+| Shift + G           | Move the focused window to the signal WS  |
+| P                   | Switch to spotify WS                      |
+| Shift + P           | Move the focused window to the spotify WS |
+| Escape              | Disable special ws mode                   |
+| Enter               | Disable special ws mode                   |
+
+#+begin_src i3 :tangle config
 # Special WS mode allows movment to and from special workspaces
 mode "special WS" {
     # Discord
@@ -224,7 +353,24 @@ mode "special WS" {
 }
 
 bindsym $mod+Control+s mode "special WS"
+#+end_src
 
+*** Config
+Config mode opens some common config in emacs (or $VISUAL)
+
+| Binding             | Config                  |
+|---------------------+-------------------------|
+| Super + Control + C | En/Dis-able config mode |
+| I                   | i3 config               |
+| A                   | alacritty.yml           |
+| D                   | dunstrc                 |
+| P                   | picom.conf              |
+| Y                   | polybar config          |
+| H                   | polybar modules         |
+| Escape              | Disable config mode     |
+| Enter               | Disable config mode     |
+
+#+begin_src i3 :tangle config
 # Edit mode allows quick opening of common config files
 mode "config" {
     # i3 Config
@@ -247,7 +393,15 @@ mode "config" {
 }
 
 bindsym $mod+Control+c mode "config"
+#+end_src
 
+* Bar + Autostart
+This configuration uses Polybar as its main bar.
+i3status is also enabled but not used.
+
+All the programs that run when i3 starts up are in the "autostart.sh"
+
+#+begin_src i3 :tangle config
 # Enable i3status and polybar
 bar {
     status_command i3status
@@ -256,3 +410,42 @@ bar {
 
 # Autostart programs
 exec_always --no-startup-id $HOME/.config/i3/autostart.sh
+#+end_src
+
+#+begin_src shell :tangle autostart.sh
+#!/bin/sh
+function run {
+    if ! pgrep $1 > /dev/null ;
+    then
+        $@&
+    fi
+}
+
+# Autostart programs
+#run picom --experimental-backend &
+run picom -b -c -C -G &
+run nitrogen --restore &
+# run xfce4-clipman
+run /usr/bin/discord-canary
+
+# Set proper video mode
+xrandr --output HDMI-0 --mode 2560x1440 --rate 144.00 --right-of DP-4
+xrandr --output DP-4 --primary --mode 2560x1440 --rate 144.00 --left-of HDMI-0
+
+run dunst
+
+# Enable numlock on start
+numlockx on
+
+# Set mouse sensitiviy
+xinput --set-prop 9 'libinput Accel Speed' -0.5
+
+# Update Kensington Expert settings
+/home/steve/Documents/Scripts/Kensington_Expert_Setup.sh
+
+systemctl --user start ulauncher
+
+/home/steve/.config/polybar/launch.sh
+
+emacs --daemon
+#+end_src
