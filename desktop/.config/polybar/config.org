@@ -1,3 +1,31 @@
+#+TITLE: i3 Config
+#+PROPERTY: header-args :tangle config
+#+STARTUP: showeverything
+#+AUTHOR: Steve Tautonico
+
+* Table Of Contents :toc:
+- [[#basic-settings][Basic Settings]]
+  - [[#colors][Colors]]
+  - [[#global--window-manager][Global / Window Manager]]
+- [[#bar][Bar]]
+  - [[#common][Common]]
+  - [[#left][Left]]
+  - [[#right][Right]]
+- [[#modules][Modules]]
+  - [[#filesystem][Filesystem]]
+  - [[#i3][I3]]
+  - [[#cpu][CPU]]
+  - [[#memory][Memory]]
+  - [[#datetime][Datetime]]
+  - [[#temperature][Temperature]]
+
+* Basic Settings
+Some basic settings applied globally across all of polybar and all bars
+
+** Colors
+Some color settings that are applied globally across all bars
+
+#+begin_src ini :tangle config
 [colors]
 background = #222
 background-alt = #444
@@ -8,7 +36,12 @@ foreground-alt = #555
 primary = #2974FF
 secondary = #e60053
 alert = #bd2c40
+#+end_src
 
+** Global / Window Manager
+These settings are "general purpose" global settings and settings specific to the window manager
+
+#+begin_src ini :tangle config
 ; Global settings
 [settings]
 screenchange-reload = true
@@ -16,7 +49,18 @@ screenchange-reload = true
 [global/wm]
 margin-top = 5
 margin-bottom = 5
+#+end_src
 
+
+* Bar
+A bar is the "bar" on the top of the screen. A bar can be configured with modules that add components and functionality to the bar.
+
+** Common
+The "common" bar isn't actually displayed on screen, but is used for "shared" settings.
+The "actual" bars inherit the settings from the common bar.
+This is used so common settings don't have to be re-defined on both bars (dual monitor setup)
+
+#+begin_src ini :tangle config
 [bar/common]
 width = 100%
 height = 27
@@ -56,7 +100,18 @@ scroll-down = i3wm-wsprev
 
 cursor-click = pointer
 cursor-scroll = ns-resize
+#+end_src
+** Left
+The bar for the left monitor (DP-4).
+This bar contains the following modules:
+- i3
+- filesystem
+- memory
+- cpu
+- temperature
+- datetime
 
+#+begin_src ini :tangle config
 [bar/left]
 inherit = bar/common
 
@@ -65,7 +120,22 @@ monitor = DP-4
 modules-left = i3
 modules-center =
 modules-right = filesystem memory cpu temperature datetime
+#+end_src
 
+** Right
+The bar for the right monitor (HDMI-0).
+This bar contains the following modules:
+- i3
+- filesystem
+- memory
+- cpu
+- temperature
+- datetime
+
+This bar also contains the system tray. Its on the right monitor instead because it overlays on full screen applications.
+Since the right monitor usually doesn't have fullscreen apps, its better to have it there.
+
+#+begin_src ini :tangle config
 [bar/right]
 inherit = bar/common
 
@@ -76,7 +146,16 @@ modules-center =
 modules-right = filesystem memory cpu temperature datetime
 
 tray-position = right
+#+end_src
 
+* Modules
+Modules are individual components that sit on a bar. These components may or may not be interactive.
+
+** Filesystem
+The /filesystem/ component displays the amount of storage used in a given disk/folder.
+This specific component displays the percent of storage used in the "/" folder.
+
+#+begin_src ini :tangle config
 [module/filesystem]
 type = internal/fs
 interval = 30
@@ -85,7 +164,14 @@ mount-0 = /
 label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
+#+end_src
 
+** I3
+The /i3/ module allows polybar to interact with the window manager (i3 in this case).
+It displays the workspaces on the current monitor.
+It also sets custom icons for the "special" workspaces (like discord, steam, etc)
+
+#+begin_src ini :tangle config
 [module/i3]
 type = internal/i3
 format = <label-state> <label-mode>
@@ -141,7 +227,13 @@ label-urgent-padding = 2
 
 ; Separator in between workspaces
 ; label-separator = |
+#+end_src
 
+** CPU
+The /cpu/ module shows the load on the CPU or CPU cores.
+This specific example shows the overall CPU load (percentage) and a small bar showing the load for each core.
+
+#+begin_src ini :tangle config
 [module/cpu]
 type = internal/cpu
 interval = 2
@@ -160,7 +252,13 @@ ramp-coreload-4 = ▅
 ramp-coreload-5 = ▆
 ramp-coreload-6 = ▇
 ramp-coreload-7 = █
+#+end_src
 
+** Memory
+The /memory/ module is very similar to the /cpu/ module, except it shows the RAM load.
+This specific example shows the percentage of the RAM load.
+
+#+begin_src ini :tangle config
 [module/memory]
 type = internal/memory
 interval = 2
@@ -169,7 +267,14 @@ format-prefix = " "
 format-prefix-foreground = #4bffdc
 format-underline = #4bffdc
 label = %percentage_used%%
+#+end_src
 
+** Datetime
+The /datetime/ module can be configured to show different time/date configurations in any format you want.
+The date and time format are configured using the [[https://en.cppreference.com/w/cpp/io/manip/put_time][C++ std::put_time format string parameters]]
+This specific example is configured to show: [ HOUR:MINUTE:SECOND | DAY, MONTH DATE ]
+
+#+begin_src ini :tangle config
 [module/datetime]
 type = internal/date
 interval = 1
@@ -181,7 +286,12 @@ date-alt = %a, %b %d
 time-alt = %I:%M:%S %p
 
 label = [ %time% | %date% ]
+#+end_src
 
+** Temperature
+The /temperature/ module displays the current CPU temperature (in degrees C)
+
+#+begin_src ini :tangle config
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
@@ -200,3 +310,4 @@ ramp-0 = 
 ramp-1 = 
 ramp-2 = 
 ramp-foreground = ${colors.foreground-alt}
+#+end_src

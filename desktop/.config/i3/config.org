@@ -1,9 +1,10 @@
 #+TITLE: i3 Config
 #+PROPERTY: header-args :tangle config
+#+OPTIONS: toc:3
 #+STARTUP: showeverything
 #+AUTHOR: Steve Tautonico
 
-* Table Of Contents :toc:
+* Table of Contents :toc:
 - [[#basic-settings][Basic Settings]]
 - [[#workspaces][Workspaces]]
 - [[#keybinds][Keybinds]]
@@ -411,6 +412,8 @@ bar {
 # Autostart programs
 exec_always --no-startup-id $HOME/.config/i3/autostart.sh
 #+end_src
+
+autostart.sh
 
 #+begin_src shell :tangle autostart.sh
 #!/bin/sh
