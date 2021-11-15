@@ -51,7 +51,7 @@
 
 (package! evil-tutor)
 (package! helm-spotify-plus)
-(package! toc-org)
+;; (package! toc-org)
 (package! rainbow-mode)
 ;(use-package pdf-tools
 ;  :pin manual ;; manually update

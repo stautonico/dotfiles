@@ -1,3 +1,23 @@
+#+TITLE: Alacritty Config
+#+PROPERTY: header-args :tangle alacritty.yml
+#+OPTIONS: toc:3
+#+STARTUP: showeverything
+#+AUTHOR: Steve Tautonico
+
+* Table of Contents :toc:
+- [[#cursor][Cursor]]
+- [[#window][Window]]
+- [[#color][Color]]
+- [[#bindings][Bindings]]
+  - [[#keyboard-bindings][Keyboard Bindings]]
+  - [[#mouse-bindings][Mouse Bindings]]
+- [[#font][Font]]
+- [[#misc][Misc]]
+
+* Cursor
+This cursor is configured to be an I-beam that blinks on an interval of 500 ms
+
+#+begin_src yaml :tangle alacritty.yml
 cursor:
   # Set the cursor to a line (i-beam)
   style:
@@ -6,7 +26,16 @@ cursor:
   blink_interval: 500
   unfocused_hollow: false
   thickness: 0.15
+#+end_src
 
+* Window
+All terminal windows have an internal padding of 6x6, meaning on all sides of the window, the text is 6 pixels away from the window frame.
+The terminals also have "dynamic title" meaning that terminal apps can change the windows' title
+Dynamic padding is a feature that allows a tiling wm to change the pixel count per window, but it doesn't work that well so we want to disable it
+
+Also, we want to set the window X properties (class name)
+
+#+begin_src yaml :tangle alacritty.yml
 window:
   padding:
     x: 6
@@ -24,7 +53,13 @@ window:
 class:
   instance: Alacritty
   general: Alacritty
+#+end_src
 
+* Color
+This is self explanatory: configure the terminal's colors
+Also configure window transparency
+
+#+begin_src yaml :tangle alacritty.yml
 colors:
   # Background and foreground colors
   primary:
@@ -62,7 +97,16 @@ draw_bold_text_with_bright_colors: true
 
 # Make the background slightly opaque (transparency)
 background_opacity: 0.80
+#+end_src
 
+* Bindings
+Alacritty has the ability to bind actions to keyboard shortcuts *and* mouse buttons
+
+** Keyboard Bindings
+
+TODO: Table
+
+#+begin_src yaml :tangle alacritty.yml
 # Keyboard bindings:
 # CTRL + L: Clear screen
 # SHIFT + PageUp: Scroll up
@@ -81,14 +125,23 @@ key_bindings:
   - { key: PageDown,  mods: Shift,                      action: ScrollPageDown }
   - { key: Home,      mods: Shift,                      action: ScrollToTop, }
   - { key: End,       mods: Shift,                      action: ScrollToBottom }
+#+end_src
 
+** Mouse Bindings
+TODO: Table
+
+#+begin_src yaml :tangle alacritty.yml
 # Mouse bindings:
 # Right click: Copy highlighted text
 # Middle click: None (Used to disable middle click to paste)
 mouse_bindings:
   - { mouse: Right, action: Copy }
   - { mouse: Middle, action: None }
+#+end_src
 
+
+* Font
+#+begin_src yaml :tangle alacritty.yml
 # Set the fonts
 font:
   # Standard
@@ -115,10 +168,18 @@ font:
   offset:
     x: 0
     y: 0
+#+end_src
 
+* Misc
+Some misalliances settings that don't fall into any specific category. These include settings like:
+- Environment settings
+- Scrolling settings
+
+#+begin_src yaml :tangle alacritty.yml
 env:
   TERM: xterm-256color
 
 scrolling:
   # Maximum number of lines in the scrollback buffer
   history: 8192
+#+end_src

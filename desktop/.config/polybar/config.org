@@ -1,4 +1,4 @@
-#+TITLE: i3 Config
+#+TITLE: Polybar Config
 #+PROPERTY: header-args :tangle config
 #+STARTUP: showeverything
 #+AUTHOR: Steve Tautonico
@@ -104,12 +104,12 @@ cursor-scroll = ns-resize
 ** Left
 The bar for the left monitor (DP-4).
 This bar contains the following modules:
-- i3
-- filesystem
-- memory
-- cpu
-- temperature
-- datetime
+- [[I3][i3]]
+- [[Filesystem][filesystem]]
+- [[Memory][memory]]
+- [[CPU][cpu]]
+- [[Temperature][temperature]]
+- [[Datetime][datetime]]
 
 #+begin_src ini :tangle config
 [bar/left]
@@ -125,12 +125,12 @@ modules-right = filesystem memory cpu temperature datetime
 ** Right
 The bar for the right monitor (HDMI-0).
 This bar contains the following modules:
-- i3
-- filesystem
-- memory
-- cpu
-- temperature
-- datetime
+- [[I3][i3]]
+- [[Filesystem][filesystem]]
+- [[Memory][memory]]
+- [[CPU][cpu]]
+- [[Temperature][temperature]]
+- [[Datetime][datetime]]
 
 This bar also contains the system tray. Its on the right monitor instead because it overlays on full screen applications.
 Since the right monitor usually doesn't have fullscreen apps, its better to have it there.
