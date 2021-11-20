@@ -181,7 +181,6 @@ alias math="bc"
 alias reboot-bios="sudo systemctl reboot --firmware-setup"
 alias neovide="/usr/bin/neovide -S ~/.config/nvim/init.vim"
 alias nano="/usr/bin/nano -l"
-alias github="cd /home/steve/Documents/GitHub"
 alias upgrade="sudo pacman -Syyuu && yay -Syyuu --noconfirm"
 alias update="sudo pacman -Syyuu && yay -Syyuu --noconfirm"
 alias q="exit"
@@ -192,6 +191,10 @@ alias json="/usr/bin/jq . "
 alias grep="ripgrep"
 alias open="xdg-open"
 alias ps="procs"
+
+# Shortcuts to common folders
+alias github="cd /home/steve/Documents/GitHub"
+alias school="cd /mnt/steven/School/"
 
 # Force myself to use vim
 # alias nano="vim"
@@ -246,6 +249,8 @@ alias allusers="cut -d: -f1 /etc/passwd"
 alias userlist="egrep -E '/bin/bash|/usr/bin/zsh' /etc/passwd | cut -d: -f1"
 #alias pacman="sudo pacman --color auto"
 alias cleanup="sudo pacman -Rs $(pacman -Qqtd)"
+
+alias monitormic="pacat -r --latency-msec=1 -d alsa_input.usb-Razer_Razer_Nari_Ultimate-00.mono-fallback | pacat -p --latency-msec=1 -d alsa_output.usb-Razer_Razer_Nari_Ultimate-00.mono-fallback"
 
 alias yta-aac="youtube-dl --extract-audio --audio-format aac "
 alias yta-best="youtube-dl --extract-audio --audio-format best "
