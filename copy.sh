@@ -20,11 +20,22 @@ backup_desktop() {
     # We really don't want the user prefs here (passwords are stored and stuff)
     rm -rfv ./desktop/.config/ulauncher/ext_preferences/
     cp -rv ~/.doom.d/ ./desktop/
+}
 
+backup_laptop() {
+    cp -rv ~/.Xresources ./laptop/
+    cp -rv ~/.config/i3 ./laptop/.config/
+    cp -rv ~/.zshrc ./laptop
+    cp -rv ~/.vimrc ./desktop
+    cp -rv ~/.doom.d/ ./laptop/
+    cp -rv ~/.config/dunst ./laptop/.config/
+    cp -rv ~/.config/rofi ./laptop/.config/
+    cp -rv ~/.config/picom.conf ./laptop/.config/
 }
 
 case $(cat /etc/hostname) in
   (anarchy) backup_desktop;;
+  (pleasefuckingwork) backup_laptop;;
   (*)   echo "Unsupported device!";;
 esac
 
