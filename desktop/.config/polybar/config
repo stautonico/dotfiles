@@ -60,7 +60,7 @@ cursor-scroll = ns-resize
 [bar/left]
 inherit = bar/common
 
-monitor = DP-4
+monitor = DP-2
 
 modules-left = i3
 modules-center =
