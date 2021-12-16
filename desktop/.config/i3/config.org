@@ -149,6 +149,7 @@ These bindings are for launching commonly used programs.
 | Super + F         | Firefox Developer Edition |
 | Super + Shift + S | Screenshot With Flameshot |
 | Super + D         | Doom Emacs                |
+| Super + Space     | uLauncher                 |
 
 #+begin_src i3 :tangle config
 # Terminal
@@ -166,6 +167,9 @@ bindsym $mod+Shift+s exec /usr/bin/flameshot gui
 
 # Open emacs (d for doom)
 bindsym $mod+d exec /usr/bin/emacsclient -c -a "emacs"
+
+# Manually open uLauncher (bugged in python 3.10)
+bindsym $mod+space exec /usr/bin/ulauncher-toggle
 #+end_src
 
 ** Navigation and Control

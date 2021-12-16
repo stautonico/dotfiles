@@ -106,6 +106,9 @@ bindsym $mod+Shift+s exec /usr/bin/flameshot gui
 # Open emacs (d for doom)
 bindsym $mod+d exec /usr/bin/emacsclient -c -a "emacs"
 
+# Manually open uLauncher (bugged in python 3.10)
+bindsym $mod+space exec /usr/bin/ulauncher-toggle
+
 # Close a window
 bindsym $mod+w kill
 
