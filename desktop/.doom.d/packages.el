@@ -65,3 +65,5 @@
   ;; use normal isearch
 ;  (define-key pdf-view-mode-map (kbd "C-s") 'isearch-forward))
 (package! pacmacs)
+(package! cmake-mode)
+(package! prettier)

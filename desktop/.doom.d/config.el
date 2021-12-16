@@ -76,3 +76,6 @@
       ;; (define-key markdown-mode-map (kbd "\C-c\C-o") 'toc-org-markdown-follow-thing-at-point))
   ;;(warn "toc-org not found"))
 ))
+
+;; Configure settings for prettier
+(setenv "NODE_PATH" "/usr/lib/node_modules")

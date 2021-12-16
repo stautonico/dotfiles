@@ -177,6 +177,9 @@ alias cat="bat"
 alias oldcat="/usr/bin/cat"
 alias vim="nvim -S ~/.config/nvim/init.vim"
 alias oldvim="/usr/bin/vim"
+alias hexdump="/usr/bin/hexyl"
+alias oldhexdump="/usr/bin/hexdump"
+
 alias math="bc"
 alias reboot-bios="sudo systemctl reboot --firmware-setup"
 alias neovide="/usr/bin/neovide -S ~/.config/nvim/init.vim"
@@ -195,6 +198,9 @@ alias ps="procs"
 # Shortcuts to common folders
 alias github="cd /home/steve/Documents/GitHub"
 alias school="cd /mnt/steven/School/"
+
+export eng="/mnt/steven/School/Fall_2021/ENG2575/"
+export econ="/mnt/steven/School/Fall_2021/ECON1101/"
 
 # Force myself to use vim
 # alias nano="vim"
