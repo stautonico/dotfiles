@@ -106,6 +106,12 @@ bindsym $mod+Shift+s exec /usr/bin/flameshot gui
 # Open emacs (d for doom)
 bindsym $mod+d exec /usr/bin/emacsclient -c -a "emacs"
 
+# Open GitKraken
+bindsym $mod+g exec /usr/bin/gitkraken
+
+# Open PyCharm
+bindsym $mod+p exec /home/steve/.local/share/JetBrains/Toolbox/apps/PyCharm-P/ch-0/213.5744.248/bin/pycharm.sh
+
 # Manually open uLauncher (bugged in python 3.10)
 bindsym $mod+space exec /usr/bin/ulauncher-toggle
 
@@ -250,6 +256,20 @@ mode "config" {
 }
 
 bindsym $mod+Control+c mode "config"
+
+mode "notif" {
+    # Enter menu mode
+    bindsym q exec "/usr/bin/notify-send 'Entering Menu Mode'"; mode "default"
+
+    # Enter discord mode
+    bindsym w exec "/usr/bin/notify-send 'Entering Discord Mode'"; mode "default"
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+Control+Mod1+Shift+Q mode "default"
+}
+
+bindsym $mod+Control+Mod1+Shift+Q mode "notif"
 
 # Enable i3status and polybar
 bar {

@@ -149,6 +149,8 @@ These bindings are for launching commonly used programs.
 | Super + F         | Firefox Developer Edition |
 | Super + Shift + S | Screenshot With Flameshot |
 | Super + D         | Doom Emacs                |
+| Super + G         | GitKraken                 |
+| Super + P         | PyCharm                   |
 | Super + Space     | uLauncher                 |
 
 #+begin_src i3 :tangle config
@@ -167,6 +169,12 @@ bindsym $mod+Shift+s exec /usr/bin/flameshot gui
 
 # Open emacs (d for doom)
 bindsym $mod+d exec /usr/bin/emacsclient -c -a "emacs"
+
+# Open GitKraken
+bindsym $mod+g exec /usr/bin/gitkraken
+
+# Open PyCharm
+bindsym $mod+p exec /home/steve/.local/share/JetBrains/Toolbox/apps/PyCharm-P/ch-0/213.5744.248/bin/pycharm.sh
 
 # Manually open uLauncher (bugged in python 3.10)
 bindsym $mod+space exec /usr/bin/ulauncher-toggle
@@ -365,7 +373,7 @@ Config mode opens some common config in emacs (or $VISUAL)
 
 | Binding             | Config                  |
 |---------------------+-------------------------|
-| Super + Control + C | En/Dis-able config mode |
+| Super + Control + C | En/Disable config mode  |
 | I                   | i3 config               |
 | A                   | alacritty.yml           |
 | D                   | dunstrc                 |
@@ -398,6 +406,30 @@ mode "config" {
 }
 
 bindsym $mod+Control+c mode "config"
+#+end_src
+
+*** Notification
+These binds should be used by the 'thekey' macropad to indicate what mode we're in (or changing to)
+
+| Binding                           | Message For          |
+| Super + Control + Shift + Alt + Q | Enable/Disable Notification Mode |
+| Q                                 | Enter "Menu" Mode    |
+| W                                 | Enter "Discord" Mode |
+
+#+begin_src i3 :tangle config
+mode "notif" {
+    # Enter menu mode
+    bindsym q exec "/usr/bin/notify-send 'Entering Menu Mode'"; mode "default"
+
+    # Enter discord mode
+    bindsym w exec "/usr/bin/notify-send 'Entering Discord Mode'"; mode "default"
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+Control+Mod1+Shift+Q mode "default"
+}
+
+bindsym $mod+Control+Mod1+Shift+Q mode "notif"
 #+end_src
 
 * Bar + Autostart
