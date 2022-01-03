@@ -461,6 +461,8 @@ function run {
 }
 
 # Autostart programs
+eval $(gnome-keyring-daemon --start)
+export SSH_AUTH_SOCK
 #run picom --experimental-backend &
 run picom -b -c -C -G &
 run nitrogen --restore &
@@ -480,10 +482,13 @@ numlockx on
 xset r rate 300 50
 
 # Set mouse sensitiviy
-xinput --set-prop 9 'libinput Accel Speed' -0.5
+xinput set-prop 9 'libinput Accel Speed' -0.5
 
 # Update Kensington Expert settings
 /home/steve/Documents/Scripts/Kensington_Expert_Setup.sh
+
+# Set trackball sensitiviy
+xinput set-prop 17 'libinput Accel Speed' -0.75
 
 systemctl --user start ulauncher
 
