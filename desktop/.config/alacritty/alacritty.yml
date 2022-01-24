@@ -12,6 +12,11 @@ window:
     x: 6
     y: 6
 
+
+  # Make the background slightly opaque (transparency)
+  opacity: 0.80
+
+
   # Allow terminal applications to change the window's title
   dynamic_title: true
 
@@ -59,9 +64,6 @@ colors:
     white: '#FFFFFF'
 
 draw_bold_text_with_bright_colors: true
-
-# Make the background slightly opaque (transparency)
-background_opacity: 0.80
 
 # Keyboard bindings:
 # CTRL + L: Clear screen
