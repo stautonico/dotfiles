@@ -53,7 +53,7 @@
 (package! helm-spotify-plus)
 ;; (package! toc-org)
 (package! rainbow-mode)
-;(use-package pdf-tools
+;(use-package pdf -tools
 ;  :pin manual ;; manually update
 ;  :config
   ;; initialise

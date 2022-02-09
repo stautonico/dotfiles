@@ -180,6 +180,8 @@ alias oldvim="/usr/bin/vim"
 alias hexdump="/usr/bin/hexyl"
 alias oldhexdump="/usr/bin/hexdump"
 
+alias phonescreen="adb shell screenrecord --output-format=h264 - | ffplay -framerate 60 -probesize 32 -sync video -"
+
 alias math="bc"
 alias reboot-bios="sudo systemctl reboot --firmware-setup"
 alias neovide="/usr/bin/neovide -S ~/.config/nvim/init.vim"
@@ -290,8 +292,12 @@ export CONF_CSGO="/home/steve/.local/share/Steam/steamapps/common/Counter-Strike
 export CONF_ALACRITTY="/home/steve/.config/alacritty"
 
 export GOPATH=/home/steve/go
-export PATH="$PATH:/home/steve/.local/bin:/home/steve/.emacs.d/bin:/home/steve/.cargo/bin"
+export DENO_INSTALL="/home/steve/.deno"
 
+export PATH="$PATH:/home/steve/.local/bin:/home/steve/.emacs.d/bin:/home/steve/.cargo/bin:$DENO_INSTALL/bin"
+
+
+# home-manager
 #startup_commands=(neofetch pfetch)
 
 #size=${#startup_commands[@]}

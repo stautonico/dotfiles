@@ -1,0 +1,27 @@
+[user]
+    email = stautonico@gmail.com
+    name = Steve
+    signingKey = DCE0805569239C5437C9C7056422E5D217FC628B
+[gpg]
+    program = gpg
+[tag]
+    forceSignAnnotated = true
+[commit]
+    gpgSign = true
+[init]
+    defaultBranch = main
+
+[core]
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default

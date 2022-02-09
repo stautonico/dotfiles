@@ -78,6 +78,7 @@ for_window [class="makebranch"] floating enable
 for_window [class="branchdialog"] floating enable
 for_window [class="pinentry"] floating enable
 for_window [class="ssh-askpass"] floating enable
+for_window [title="Cisco Packet Tracer"] floating enable
 
 # Bind specific windows to specific workspaces
 assign [class="^discord$"] $discordws
