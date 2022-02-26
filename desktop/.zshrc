@@ -215,7 +215,8 @@ alias fgrep='fgrep --color=auto'
 # confirm before overwriting something
 alias cp="cp -i"
 alias mv='mv -i'
-alias rm='rm -i'
+#alias rm='rm -i'
+alias rm='trash'
 alias rmnoconfirm='/usr/bin/rm'
 
 # Common cd locations
@@ -294,7 +295,7 @@ export CONF_ALACRITTY="/home/steve/.config/alacritty"
 export GOPATH=/home/steve/go
 export DENO_INSTALL="/home/steve/.deno"
 
-export PATH="$PATH:/home/steve/.local/bin:/home/steve/.emacs.d/bin:/home/steve/.cargo/bin:$DENO_INSTALL/bin"
+export PATH="$PATH:/home/steve/.local/bin:/home/steve/.emacs.d/bin:/home/steve/.cargo/bin:$DENO_INSTALL/bin:/home/steve/.local/share/gem/ruby/3.0.0/bin"
 
 
 # home-manager

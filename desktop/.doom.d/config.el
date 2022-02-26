@@ -79,3 +79,10 @@
 
 ;; Configure settings for prettier
 (setenv "NODE_PATH" "/usr/lib/node_modules")
+
+;; Setup org-superstar
+(require 'org-superstar)
+(add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
+
+(with-eval-after-load 'ox
+  (require 'ox-hugo))

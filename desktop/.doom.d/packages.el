@@ -67,3 +67,5 @@
 (package! pacmacs)
 (package! cmake-mode)
 (package! prettier)
+(package! ox-hugo)
+(package! org-superstar)

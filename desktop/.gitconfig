@@ -19,6 +19,9 @@
 
 [delta]
     navigate = true
+    line-number = true
+    side-by-side = true
+
 
 [merge]
     conflictstyle = diff3
