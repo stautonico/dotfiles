@@ -3,6 +3,7 @@ export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
 export EDITOR="nvim"
 export VISUAL="emacs"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export BROWSER="/usr/bin/firefox-developer-edition"
 
 #Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -201,8 +202,7 @@ alias ps="procs"
 alias github="cd /home/steve/Documents/GitHub"
 alias school="cd /mnt/steven/School/"
 
-export eng="/mnt/steven/School/Fall_2021/ENG2575/"
-export econ="/mnt/steven/School/Fall_2021/ECON1101/"
+alias weather="curl -s 'wttr.in' | grep -v 'New feature' | grep -v Follow" 
 
 # Force myself to use vim
 # alias nano="vim"
