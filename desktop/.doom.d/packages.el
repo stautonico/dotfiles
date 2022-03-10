@@ -69,3 +69,4 @@
 (package! prettier)
 (package! ox-hugo)
 (package! org-superstar)
+(package! org-roam)

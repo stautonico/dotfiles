@@ -55,6 +55,13 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+;; Bind for font-lock-mode in org-mode (SPC c t)
+(map!
+ (:after org
+ (:leader
+  :desc "Font lock mode"
+  "c t" #'font-lock-mode)))
+
 ;; Custom keybindings for helm-spotify-plus
 (global-set-key (kbd "C-c s s") 'helm-spotify-plus)  ;; "s" for SEARCH
 (global-set-key (kbd "C-c s f") 'helm-spotify-plus-next)
@@ -86,3 +93,93 @@
 
 (with-eval-after-load 'ox
   (require 'ox-hugo))
+
+; Set the location where org-agenda will look for files
+(setq org-agenda-files (directory-files-recursively "/home/steve/Documents/GitHub/school" "\\.org$"))
+
+; Setup and configure mu4e
+(require 'mu4e)
+
+;; Use mu4e as our email client
+(setq mail-user-agent 'mu4e-user-agent)
+
+(setq mu4e-drafts-folder "/[Gmail].Drafts")
+(setq mu4e-sent-folder   "/[Gmail].Sent Mail")
+(setq mu4e-trash-folder  "/[Gmail].Trash")
+
+;; don't save message to Sent Messages, Gmail/IMAP takes care of this
+(setq mu4e-sent-messages-behavior 'delete)
+
+;; setup some handy shortcuts
+;; you can quickly switch to your Inbox -- press ``ji''
+;; then, when you want archive some messages, move them to
+;; the 'All Mail' folder by pressing ``ma''.
+
+(setq mu4e-maildir-shortcuts
+    '( (:maildir "/INBOX"              :key ?i)
+       (:maildir "/[Gmail].Sent Mail"  :key ?s)
+       (:maildir "/[Gmail].Trash"      :key ?t)
+       (:maildir "/[Gmail].All Mail"   :key ?a)))
+
+;; allow for updating mail using 'U' in the main view:
+(setq mu4e-get-mail-command "offlineimap")
+
+;; something about ourselves
+;; (setq
+;;   mu4e-compose-signature
+;;    (concat
+;;      "Foo X. Bar\n"
+;;      "http://www.example.com\n"))
+
+;; Tell mu4e which emails are mine
+(setq mu4e-user-mail-address-list '("stautonico@gmail.com"
+                                    "steven.tautonico@mail.citytech.cuny.edu"))
+
+(require 'smtpmail)
+(setq message-send-mail-function 'smtpmail-send-it
+   starttls-use-gnutls t
+   smtpmail-starttls-credentials '(("smtp.gmail.com" 587 nil nil))
+   smtpmail-auth-credentials
+     '(("smtp.gmail.com" 587 "stautonico@gmail.com" nil))
+   smtpmail-default-smtp-server "smtp.gmail.com"
+   smtpmail-smtp-server "smtp.gmail.com"
+   smtpmail-smtp-service 587)
+
+;; don't keep message buffers around
+(setq message-kill-buffer-on-exit t)
+
+;; Disable the loud notifications
+(setq mu4e-alert-style nil
+      +mu4e-alert-bell-cmd nil)
+
+;; Configure org-roam
+(use-package org-roam
+  :ensure t
+  :init
+  (setq org-roam-v2-ack t)
+  :custom
+  (org-roam-directory "~/Documents/GitHub/notes.dotslashsteve.sh")
+  (org-roam-complete-everywhere t)
+  :bind (("C-c n l" . org-roam-buffer-toggle)
+         ("C-c n f" . org-roam-node-find)
+         ("C-c n i" . org-roam-node-insert)
+         :map org-mode-map
+         ("C-M-i" . completion-at-point))
+  :config
+  (org-roam-setup))
+
+;; File paths for org-roam files
+;; I unfortunately need to manually add a new template for each subdir
+(setq org-roam-capture-templates
+      '(
+        ("d" "default" plain "%?"
+         :target (file+head "${slug}.org"
+                            "#+title: ${title}\n") :unnarrowed t)
+        ("l" "linux" plain "%?"
+         :target (file+head "linux/${slug}.org"
+                            "#+title: ${title}\n") :unnarrowed t)
+        ("css" "css" plain "%?"
+         :target (file+head "css/${slug}.org"
+                            "#+title: ${title}\n") :unnarrowed t)
+        )
+      )
