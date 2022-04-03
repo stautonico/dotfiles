@@ -18,6 +18,8 @@ for_window [class="^.*"] border pixel 0
 # Font used for window titles
 font pango:DejaVu Sans Mono 10
 
+set $term alacritty
+
 # Automatic floating windows for specific classes
 for_window [class="confirm"] floating enable
 for_window [class="dialog"] floating enable

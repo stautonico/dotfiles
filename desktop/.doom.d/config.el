@@ -62,6 +62,9 @@
   :desc "Font lock mode"
   "c t" #'font-lock-mode)))
 
+;; Enable visual-line-mode in org-mode
+;;(add-hook org-mode-hook 'visual-line-mode)
+
 ;; Custom keybindings for helm-spotify-plus
 (global-set-key (kbd "C-c s s") 'helm-spotify-plus)  ;; "s" for SEARCH
 (global-set-key (kbd "C-c s f") 'helm-spotify-plus-next)
@@ -158,7 +161,7 @@
   :init
   (setq org-roam-v2-ack t)
   :custom
-  (org-roam-directory "~/Documents/GitHub/notes.dotslashsteve.sh")
+  (org-roam-directory "~/Documents/GitHub/dotslashsteve.sh/notes/content-org")
   (org-roam-complete-everywhere t)
   :bind (("C-c n l" . org-roam-buffer-toggle)
          ("C-c n f" . org-roam-node-find)
@@ -183,3 +186,6 @@
                             "#+title: ${title}\n") :unnarrowed t)
         )
       )
+
+;; Allow use of BIND export setting in org-mode
+(setq org-export-allow-bind-keywords t)

@@ -272,6 +272,10 @@ alias yta-wav="youtube-dl --extract-audio --audio-format wav "
 
 alias ytv-best="youtube-dl -f bestvideo+bestaudio "
 
+
+# Git shortcuts
+alias git-last-commit="git log --name-status HEAD^..HEAD"
+
 # Make tilix work
 # if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
 #         source /etc/profile.d/vte.sh

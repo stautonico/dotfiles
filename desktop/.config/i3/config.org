@@ -20,6 +20,7 @@ These lines set:
 - Configure i3-gaps
 - Disable window title
 - Set the font
+- Set the default terminal
 
 #+begin_src i3 :tangle config
 # vim: filetype=i3config
@@ -41,8 +42,9 @@ for_window [class="^.*"] border pixel 0
 
 # Font used for window titles
 font pango:DejaVu Sans Mono 10
-#+end_src
 
+set $term alacritty
+#+end_src
 
 * Workspaces
 There are 5 general purpose workspaces per monitor * 2 monitor = 10 gp workspaces.
@@ -134,7 +136,6 @@ workspace $signalws output $monitorRight
 workspace $zoomws output $monitorRight
 workspace $spotifyws output $monitorRight
 #+end_src
-
 
 * Keybinds
 The keybinds are the basis of i3. They allow the desktop to be controlled.
