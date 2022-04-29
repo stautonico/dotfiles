@@ -21,6 +21,10 @@ backup_desktop() {
     # We really don't want the user prefs here (passwords are stored and stuff)
     rm -rfv ./desktop/.config/ulauncher/ext_preferences/
     cp -rv ~/.doom.d/ ./desktop/
+
+    # Copy the scripts over
+    cp -rv ~/Documents/Scripts ./desktop/
+    rm -rv ./desktop/Scripts/.ron_mod_man.json
 }
 
 backup_laptop() {
