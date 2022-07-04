@@ -101,31 +101,31 @@
 (setq org-agenda-files (directory-files-recursively "/home/steve/Documents/GitHub/school" "\\.org$"))
 
 ; Setup and configure mu4e
-(require 'mu4e)
+; (require 'mu4e)
 
 ;; Use mu4e as our email client
-(setq mail-user-agent 'mu4e-user-agent)
+; (setq mail-user-agent 'mu4e-user-agent)
 
-(setq mu4e-drafts-folder "/[Gmail].Drafts")
-(setq mu4e-sent-folder   "/[Gmail].Sent Mail")
-(setq mu4e-trash-folder  "/[Gmail].Trash")
+; (setq mu4e-drafts-folder "/[Gmail].Drafts")
+; (setq mu4e-sent-folder   "/[Gmail].Sent Mail")
+; (setq mu4e-trash-folder  "/[Gmail].Trash")
 
 ;; don't save message to Sent Messages, Gmail/IMAP takes care of this
-(setq mu4e-sent-messages-behavior 'delete)
+; (setq mu4e-sent-messages-behavior 'delete)
 
 ;; setup some handy shortcuts
 ;; you can quickly switch to your Inbox -- press ``ji''
 ;; then, when you want archive some messages, move them to
 ;; the 'All Mail' folder by pressing ``ma''.
 
-(setq mu4e-maildir-shortcuts
-    '( (:maildir "/INBOX"              :key ?i)
-       (:maildir "/[Gmail].Sent Mail"  :key ?s)
-       (:maildir "/[Gmail].Trash"      :key ?t)
-       (:maildir "/[Gmail].All Mail"   :key ?a)))
+; (setq mu4e-maildir-shortcuts
+;     '( (:maildir "/INBOX"              :key ?i)
+;        (:maildir "/[Gmail].Sent Mail"  :key ?s)
+;        (:maildir "/[Gmail].Trash"      :key ?t)
+;        (:maildir "/[Gmail].All Mail"   :key ?a)))
 
 ;; allow for updating mail using 'U' in the main view:
-(setq mu4e-get-mail-command "offlineimap")
+; (setq mu4e-get-mail-command "offlineimap")
 
 ;; something about ourselves
 ;; (setq
@@ -135,25 +135,25 @@
 ;;      "http://www.example.com\n"))
 
 ;; Tell mu4e which emails are mine
-(setq mu4e-user-mail-address-list '("stautonico@gmail.com"
-                                    "steven.tautonico@mail.citytech.cuny.edu"))
+; (setq mu4e-user-mail-address-list '("stautonico@gmail.com"
+;                                     "steven.tautonico@mail.citytech.cuny.edu"))
 
-(require 'smtpmail)
-(setq message-send-mail-function 'smtpmail-send-it
-   starttls-use-gnutls t
-   smtpmail-starttls-credentials '(("smtp.gmail.com" 587 nil nil))
-   smtpmail-auth-credentials
-     '(("smtp.gmail.com" 587 "stautonico@gmail.com" nil))
-   smtpmail-default-smtp-server "smtp.gmail.com"
-   smtpmail-smtp-server "smtp.gmail.com"
-   smtpmail-smtp-service 587)
+; (require 'smtpmail)
+; (setq message-send-mail-function 'smtpmail-send-it
+;    starttls-use-gnutls t
+;    smtpmail-starttls-credentials '(("smtp.gmail.com" 587 nil nil))
+;    smtpmail-auth-credentials
+;      '(("smtp.gmail.com" 587 "stautonico@gmail.com" nil))
+;    smtpmail-default-smtp-server "smtp.gmail.com"
+;    smtpmail-smtp-server "smtp.gmail.com"
+;    smtpmail-smtp-service 587)
 
 ;; don't keep message buffers around
-(setq message-kill-buffer-on-exit t)
+; (setq message-kill-buffer-on-exit t)
 
 ;; Disable the loud notifications
-(setq mu4e-alert-style nil
-      +mu4e-alert-bell-cmd nil)
+; (setq mu4e-alert-style nil
+;       +mu4e-alert-bell-cmd nil)
 
 ;; Configure org-roam
 (use-package org-roam

@@ -3,7 +3,7 @@ export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
 export EDITOR="nvim"
 export VISUAL="emacs"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-export BROWSER="/usr/bin/firefox-developer-edition"
+#export BROWSER="/usr/bin/firefox-developer-edition"
 
 #Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -118,6 +118,9 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# Use oh-my-posh
+eval "$(oh-my-posh init zsh --config ~/.poshthemes/spaceship.omp.json)"
+
 ex ()
 {
   if [ $# -eq 0 ] ; then
@@ -168,7 +171,14 @@ change-qtile-theme () {
     fi
 
     echo "Restart qtile to apply theme: '$set_theme'"
+}
 
+mkdircd () {
+    if [ $# -eq 0 ] ; then
+      echo "usage: mkdircd <name>"
+    else
+    mkdir $1 && cd $1 # We use && because we only wanna cd if the dir doesn't already exist
+    fi
 }
 
 # Aliases
@@ -176,7 +186,8 @@ alias ls="exa"
 alias oldls="/usr/bin/ls"
 alias cat="bat"
 alias oldcat="/usr/bin/cat"
-alias vim="nvim -S ~/.config/nvim/init.vim"
+#alias vim="nvim -S ~/.config/nvim/init.vim"
+alias vim="emacsclient -t"
 alias oldvim="/usr/bin/vim"
 alias hexdump="/usr/bin/hexyl"
 alias oldhexdump="/usr/bin/hexdump"
@@ -200,7 +211,7 @@ alias ps="procs"
 
 # Shortcuts to common folders
 alias github="cd /home/steve/Documents/GitHub"
-alias school="cd /mnt/steven/School/"
+alias school="cd /home/steve/Documents/GitHub/school"
 
 alias weather="curl -s 'wttr.in' | grep -v 'New feature' | grep -v Follow" 
 
@@ -310,4 +321,4 @@ export PATH="$PATH:/home/steve/.local/bin:/home/steve/.emacs.d/bin:/home/steve/.
 
 #{$startup_commands[$index]}
 
-python-colorscript --256 --ignore-distro
+#python-colorscript --256 --ignore-distro

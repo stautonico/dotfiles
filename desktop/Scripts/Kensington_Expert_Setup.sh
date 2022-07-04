@@ -34,8 +34,7 @@ if [[ ! -z "$check" ]]; then
 	xinput set-prop $mouse_id "libinput Natural Scrolling Enabled" 0
 	# enable acceleration for the ball and set the speed
 	xinput set-prop $mouse_id "libinput Accel Profile Enabled" 1, 0
-	xinput set-prop $mouse_id "libinput Accel Speed" 0.1
-
+    xinput set-prop $mouse_id 'libinput Accel Speed' -0.75
 	# allow scrolling by holding middle mouse button and using the ball to scroll ( really smooth and fast ). 
 	xinput set-prop $mouse_id "libinput Scroll Method Enabled" 0, 0, 1 # Set this last value to...
 	# 1 to enable ball scrolling and 0 to disable
