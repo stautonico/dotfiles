@@ -13,7 +13,8 @@ export SSH_AUTH_SOCK
 run picom -b -c -C -G &
 run nitrogen --restore &
 # run xfce4-clipman
-run /usr/bin/discord --no-sandbox
+# run /usr/bin/discord --no-sandbox
+run /usr/bin/discord-canary --no-sandbox
 
 # Set proper video mode
 xrandr --output HDMI-0 --mode 2560x1440 --rate 144.00 --right-of DP-2

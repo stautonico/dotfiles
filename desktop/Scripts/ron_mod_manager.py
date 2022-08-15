@@ -10,7 +10,20 @@ def create_config(config_path):
     new_config = {
         "mods": [],
         "game_dir": "",
-        "standard_pak_files": ["pakchunk0-WindowsNoEditor.pak", "pakchunk0-WindowsNoEditor_0_P.pak"] # The .pak files that are required for the base game (non-modded paks) (as of Apr 29, 2022)
+        "standard_pak_files": ["pakchunk0-WindowsNoEditor.pak",
+                               "pakchunk1-WindowsNoEditor.pak",
+                               "pakchunk10-WindowsNoEditor.pak",
+                               "pakchunk11-WindowsNoEditor.pak",
+                               "pakchunk12-WindowsNoEditor.pak",
+                               "pakchunk2-WindowsNoEditor.pak",
+                               "pakchunk3-WindowsNoEditor.pak",
+                               "pakchunk4-WindowsNoEditor.pak",
+                               "pakchunk5-WindowsNoEditor.pak",
+                               "pakchunk6-WindowsNoEditor.pak",
+                               "pakchunk7-WindowsNoEditor.pak",
+                               "pakchunk8-WindowsNoEditor.pak",
+                               "pakchunk9-WindowsNoEditor.pak"]
+        # The .pak files that are required for the base game (non-modded paks) (as of Aug 03, 2022)
     }
     save_config(new_config, config_path)
 

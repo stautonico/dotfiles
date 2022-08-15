@@ -1,7 +1,7 @@
 export TERM="xterm-256color"                      # getting proper colors
 export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
 export EDITOR="nvim"
-export VISUAL="emacs"
+export VISUAL="/usr/bin/emacsclient -c -a 'emacs'"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 #export BROWSER="/usr/bin/firefox-developer-edition"
 
@@ -119,7 +119,7 @@ source $ZSH/oh-my-zsh.sh
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Use oh-my-posh
-eval "$(oh-my-posh init zsh --config ~/.poshthemes/spaceship.omp.json)"
+eval "$(oh-my-posh init zsh --config ~/.poshthemes/nu4a.omp.json)"
 
 ex ()
 {
@@ -173,6 +173,16 @@ change-qtile-theme () {
     echo "Restart qtile to apply theme: '$set_theme'"
 }
 
+vlcd ()
+{
+  if [ $# -eq 0 ] ; then
+    echo "usage: vlcd <file>"
+  else
+      vlc -I rc $1 --play-and-exit > /dev/null
+  fi
+}
+
+
 mkdircd () {
     if [ $# -eq 0 ] ; then
       echo "usage: mkdircd <name>"
@@ -215,6 +225,7 @@ alias school="cd /home/steve/Documents/GitHub/school"
 
 alias weather="curl -s 'wttr.in' | grep -v 'New feature' | grep -v Follow" 
 
+function clonecd { git clone $1 && cd $(basename $1 .git); }
 # Force myself to use vim
 # alias nano="vim"
 
@@ -321,4 +332,16 @@ export PATH="$PATH:/home/steve/.local/bin:/home/steve/.emacs.d/bin:/home/steve/.
 
 #{$startup_commands[$index]}
 
-#python-colorscript --256 --ignore-distro
+# bun completions
+[ -s "/home/steve/.bun/_bun" ] && source "/home/steve/.bun/_bun"
+
+# Bun
+export BUN_INSTALL="/home/steve/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Disable dotnet telemetry
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+
+export PATH="$PATH:/home/steve/.dotnet/tools"
+
+python-colorscript --256 --ignore-distro

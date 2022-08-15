@@ -71,3 +71,4 @@
 (package! org-superstar)
 (package! org-roam)
 (package! org-mime)
+(package! deno-fmt)

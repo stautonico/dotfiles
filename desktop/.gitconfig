@@ -1,6 +1,6 @@
 [user]
     email = stautonico@gmail.com
-    name = Steve
+	name = Steve Tautonico
     signingKey = DCE0805569239C5437C9C7056422E5D217FC628B
 [gpg]
     program = gpg
@@ -25,6 +25,13 @@
 
 [merge]
     conflictstyle = diff3
+	tool = vim
 
 [diff]
     colorMoved = default
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
