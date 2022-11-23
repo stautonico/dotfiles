@@ -96,18 +96,22 @@ font:
   # Standard
   normal:
     family: Source Code Pro
+    #family: Monocraft
     style: Regular
 
   bold:
     family: Source Code Pro
+    #family: Monocraft
     style: Bold
 
   italic:
     family: Source Code Pro
+    #family: Monocraft
     style: Italic
 
   bold_italic:
     family: Source Code Pro
+    #family: Monocraft
     style: Bold Italic
 
   # Default size, just here to change in the future

@@ -1,0 +1,22 @@
+settings:
+  keyb_path: /home/steve/.config/keyb/keyb.yml
+  debug: false
+  reverse: false
+  mouse: true
+  title: ""
+  prompt: 'keys > '
+  placeholder: '...'
+  prefix_sep: ;
+  sep_width: 4
+  margin: 0
+  padding: 1
+  border: "rounded"
+color:
+  prompt: ""
+  cursor_fg: ""
+  cursor_bg: ""
+  filter_fg: '#FFA066'
+  filter_bg: ""
+  counter_fg: ""
+  counter_bg: ""
+  border_color: ""

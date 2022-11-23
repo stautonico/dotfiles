@@ -1,0 +1,181 @@
+- name: i3 (Normal Mode)
+  keybinds:
+    # Common programs
+    - name: Terminal (Alacritty)
+      key: Super + T
+
+    - name: File Manager (Ranger)
+      key: Super + E
+
+    - name: Browser (Firefox Dev.)
+      key: Super + F
+
+    - name: Screenshot W/ Flameshot
+      key: Super + Shift + S
+
+    - name: Doom Emacs
+      key: Super + D
+
+    - name: GitKraken
+      key: Super + G
+
+    - name: PyCharm
+      key: Super + P
+
+    - name: Shortcut Cheat Sheet (This)
+      key: Super + Shift + /
+
+    - name: uLuncher
+      key: Super + Space
+
+
+    # Nav and control
+    - name: Close Focused Window
+      key: Super + W
+
+    - name: Switch To Workspace {1-10}
+      key: Super + {1-0}
+
+    - name: Move Focused Window to Workspace {1-10}
+      key: Super + Shift + {1-10}
+
+    # Move focus
+    - name: Move Focus Left
+      key: Super + H
+
+    - name: Move Focus Down
+      key: Super + J
+
+    - name: Move Focus Up
+      key: Super + K
+
+    - name: Move Focus Right
+      key: Super + L
+
+      # Move window
+    - name: Move Focused Window Left
+      key: Super + Shift + H
+
+    - name: Move Focused Window Down
+      key: Super + Shift + J
+
+    - name: Move Focused Window Up
+      key: Super + Shift + K
+
+    - name: Move Focused Window Right
+      key: Super + Shift + L
+
+
+    - name: Split to Horizontal View
+      key: Super + Control + H
+
+    - name: Split to Vertical View
+      key: Super + Control + V
+
+    - name: Change Layout to Split View
+      key: Super + Control + Q
+
+    - name: Change Layout to Tabbed View
+      key: Super + Control + W
+
+    - name: Toggle Floating Mode on Focused Window
+      key: Super + Shift + F
+
+    - name: Toggle Full-Screen Mode on Focused Window
+      key: Super + Control + F
+
+    - name: Reload i3 Config File
+      key: Super + Shift + C
+
+    - name: Restart i3
+      key: Super + Shift + R
+
+    - name: Lock The Desktop (fancylock)
+      key: Super + Control + L
+
+    - name: Open the Logout Prompt (exit i3)
+      key: Super + Shift + E
+
+
+    - name: Toggle Resize Mode
+      key: Super + R
+
+    - name: Toggle Special WS Mode
+      key: Super + Control + S
+
+    - name: Toggle Config Mode
+      key: Super + Control + C
+
+- name: i3 (Resize Mode)
+  keybinds:
+    - name: Decrease Focused Window Width
+      key: H
+
+    - name: Increase Focused Window Height
+      key: J
+
+    - name: Decrease Focused Window Height
+      key: K
+
+    - name: Increase Focused Window Width
+      key: L
+
+    - name: Disable Resize Mode
+      key: Super + R OR Escape OR Enter
+
+
+- name: i3 (Special WS Mode)
+  keybinds:
+    - name: Switch to Discord WS
+      key: D
+
+    - name: Move the Focused Window to Discord WS
+      key: Shift + D
+
+
+    - name: Switch to Steam WS
+      key: S
+
+    - name: Move the Focused Window to Steam WS
+      key: Shift + S
+
+
+    - name: Switch to Signal WS
+      key: G
+
+    - name: Move the Focused Window to Signal WS
+      key: Shift + G
+
+
+    - name: Switch to Spotify WS
+      key: P
+
+    - name: Move the Focused Window to Spotify WS
+      key: Shift + P
+
+    - name: Disable Special WS Mode
+      key: Super + Control + S OR Escape OR Enter
+
+
+- name: i3 (Config Mode)
+  keybinds:
+    - name: Open i3 Config
+      key: I
+
+    - name: Open Alacritty Config (alcritty.yml)
+      key: A
+
+    - name: Open Dunst Config (dunstrc)
+      key: D
+
+    - name: Open Picom Config (picom.conf)
+      key: P
+
+    - name: Open Polybar Config
+      key: Y
+
+    - name: Open Polybar Modules Config
+      key: H
+
+    - name: Disable Config Mode
+      key: Super + Control + C OR Escape OR Enter

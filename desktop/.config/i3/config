@@ -97,8 +97,8 @@ workspace $spotifyws output $monitorRight
 bindsym $mod+t exec /usr/bin/alacritty
 
 # File manager (ranger)
-# bindsym $mod+e exec /usr/bin/alacritty -e /usr/bin/ranger
-bindsym $mod+e exec /usr/bin/xranger
+bindsym $mod+e exec /usr/bin/alacritty -e /usr/bin/ranger
+# bindsym $mod+e exec /usr/bin/xranger
 
 # Firefox
 bindsym $mod+f exec /usr/bin/firefox-developer-edition
@@ -113,7 +113,10 @@ bindsym $mod+d exec /usr/bin/emacsclient -c -a "emacs"
 bindsym $mod+g exec /usr/bin/gitkraken
 
 # Open PyCharm
-bindsym $mod+p exec /home/steve/.local/share/JetBrains/Toolbox/apps/PyCharm-P/ch-0/213.5744.248/bin/pycharm.sh
+bindsym $mod+p exec /home/steve/.local/share/JetBrains/Toolbox/scripts/pycharm
+
+# Open the keyb cheatsheet
+bindsym $mod+Shift+slash exec /usr/bin/alacritty -e /usr/local/bin/keyb
 
 # Manually open uLauncher (bugged in python 3.10)
 bindsym $mod+space exec /usr/bin/ulauncher-toggle
@@ -240,9 +243,9 @@ bindsym $mod+Control+s mode "special WS"
 # Edit mode allows quick opening of common config files
 mode "config" {
     # i3 Config
-    bindsym i exec "/usr/bin/emacsclient -c $HOME/.config/i3/config"; mode "default"
+    bindsym i exec "/usr/bin/emacsclient -c $HOME/.config/i3/config.org"; mode "default"
 
-    bindsym a exec "/usr/bin/emacsclient -c $HOME/.config/alacritty/alacritty.yml"; mode "default"
+    bindsym a exec "/usr/bin/emacsclient -c $HOME/.config/alacritty/alacritty.org"; mode "default"
 
     bindsym d exec "/usr/bin/emacsclient -c $HOME/.config/dunst/dunstrc"; mode "default"
 

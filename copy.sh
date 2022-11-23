@@ -17,6 +17,7 @@ backup_desktop() {
     cp -rv ~/.config/picom ./desktop/.config/
     cp -rv ~/.config/ranger ./desktop/.config/
     cp -rv ~/.config/ulauncher ./desktop/.config/
+    cp -rfv ~/.config/keyb ./desktop/.config/
     cp -rv ~/.gitconfig ./desktop/
     # We really don't want the user prefs here (passwords are stored and stuff)
     rm -rfv ./desktop/.config/ulauncher/ext_preferences/

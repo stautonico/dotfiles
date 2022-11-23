@@ -1,9 +1,9 @@
 export TERM="xterm-256color"                      # getting proper colors
 export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
-export EDITOR="nvim"
+export EDITOR="/usr/bin/emacsclient -nw -c -a 'emacs'"
 export VISUAL="/usr/bin/emacsclient -c -a 'emacs'"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-#export BROWSER="/usr/bin/firefox-developer-edition"
+export BROWSER="/sbin/firefox-developer-edition"
 
 #Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -219,11 +219,18 @@ alias grep="ripgrep"
 alias open="xdg-open"
 alias ps="procs"
 
+gitpull() {
+   for file in * ; do cd $file; git pull; cd ..; done
+}
+
+alias selectkill="xprop _NET_WM_PID | cut -d' ' -f3 | xargs kill"
+alias restartemacs="pkill -f emacs && emacs --daemon"
+
 # Shortcuts to common folders
 alias github="cd /home/steve/Documents/GitHub"
 alias school="cd /home/steve/Documents/GitHub/school"
 
-alias weather="curl -s 'wttr.in' | grep -v 'New feature' | grep -v Follow" 
+alias weather="curl -s 'wttr.in/?FQ' | grep -v 'New feature' | grep -v Follow"
 
 function clonecd { git clone $1 && cd $(basename $1 .git); }
 # Force myself to use vim
@@ -321,7 +328,8 @@ export CONF_ALACRITTY="/home/steve/.config/alacritty"
 export GOPATH=/home/steve/go
 export DENO_INSTALL="/home/steve/.deno"
 
-export PATH="$PATH:/home/steve/.local/bin:/home/steve/.emacs.d/bin:/home/steve/.cargo/bin:$DENO_INSTALL/bin:/home/steve/.local/share/gem/ruby/3.0.0/bin"
+export PATH="$PATH:/home/steve/.local/bin:/home/steve/.emacs.d/bin:/home/steve/.cargo/bin:$DENO_INSTALL/bin:/home/steve/.local/share/gem/ruby/3.0.0/bin:/home/steve/.local/share/JetBrains/Toolbox/scripts"
+
 
 
 # home-manager
@@ -345,3 +353,9 @@ export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export PATH="$PATH:/home/steve/.dotnet/tools"
 
 python-colorscript --256 --ignore-distro
+
+source /home/steve/.config/broot/launcher/bash/br
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)

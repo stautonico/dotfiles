@@ -189,3 +189,16 @@
 
 ;; Allow use of BIND export setting in org-mode
 (setq org-export-allow-bind-keywords t)
+
+;; Enable deno mode for typescript
+(add-hook 'typescript-mode-hook 'deno-fmt-mode)
+;; (add-hook 'js2-mode-hook 'deno-fmt-mode) ;; Uncomment to enable deno for javascript
+
+;; Configure elfeed feed (RSS feeds
+(setq elfeed-feeds
+      '("http://localhost:1313/index.xml"
+        "https://blog.dotslashsteve.sh/index.xml"
+        "http://blog.cryptographyengineering.com/feeds/posts/default"
+        "http://curiousprogrammer.wordpress.com/feed/"
+        )
+)
