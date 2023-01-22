@@ -140,6 +140,7 @@ ex ()
         *.Z)         uncompress $1;;
         *.7z)        7z x $1      ;;
         *.deb)       ar x $1      ;;
+        *.xz)        tar xf $1    ;;
         *.tar.xz)    tar xf $1    ;;
         *.tar.zst)   unzstd $1    ;;
         *)           echo "'$1' cannot be extracted via ex()" ;;
@@ -355,6 +356,13 @@ export PATH="$PATH:/home/steve/.dotnet/tools"
 python-colorscript --256 --ignore-distro
 
 source /home/steve/.config/broot/launcher/bash/br
+
+# Include devkitpro stuff for 3ds development
+export DEVKITPRO=/opt/devkitpro
+export DEVKITARM=${DEVKITPRO}/devkitARM
+export DEVKITPPC=${DEVKITPRO}/devkitPPC
+
+export PATH=${DEVKITPRO}/tools/bin:$PATH
 
 
 # Load Angular CLI autocompletion.
